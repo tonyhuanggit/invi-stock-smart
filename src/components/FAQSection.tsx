@@ -8,36 +8,36 @@ import { motion } from "framer-motion";
 
 const faqs = [
   {
+    question: "Do I need to install a separate app?",
+    answer: "Nope! Invi works directly in Slack, Microsoft Teams, or SMS - wherever you already chat with your team. No extra app to download, no new platform to learn. Just add Invi to your workspace and start chatting.",
+  },
+  {
+    question: "How does Invi learn our communication style?",
+    answer: "Invi uses natural language AI to understand how you naturally talk. Whether you're formal or casual, use emojis or not, prefer quick replies or detailed explanations - Invi adapts to your style within a few conversations. It gets smarter the more you chat.",
+  },
+  {
+    question: "Can my whole team use it?",
+    answer: "Yes! Everyone on your team can chat with Invi. Add it to a shared channel so the whole crew can ask questions, or message Invi directly for personal alerts. Permissions are role-based, so you control who can approve orders versus just checking stock levels.",
+  },
+  {
+    question: "What if I prefer texting over Slack?",
+    answer: "Totally fine! Invi works via SMS too. Get alerts on your phone and reply with simple commands like 'YES' or 'ORDER MORE'. Perfect for owners who aren't always on their computer. You can even switch between SMS and Slack depending on where you are.",
+  },
+  {
+    question: "How fast does Invi respond?",
+    answer: "Instantly. Ask a question, get an answer in seconds. Invi processes your messages in real-time and pulls live data from your POS. No waiting, no loading screens - just fast, conversational responses like texting a real person.",
+  },
+  {
+    question: "Is my data secure in chat?",
+    answer: "Absolutely. All conversations are encrypted end-to-end, just like your banking app. Invi follows enterprise security standards (SOC 2 Type II certified) and integrates securely with Slack/Teams using official APIs. Your inventory data never leaves secure channels.",
+  },
+  {
     question: "How does Invi integrate with my POS system?",
-    answer: "Invi connects seamlessly with all major POS systems including Square, Clover, Toast, and Shopify. Our setup wizard guides you through a simple OAuth connection that takes less than 5 minutes. No technical knowledge required.",
+    answer: "Invi connects seamlessly with all major POS systems including Square, Clover, Toast, and Shopify. Setup takes 5 minutes through our simple connection wizard - no technical knowledge required. We pull real-time sales data to keep inventory accurate.",
   },
   {
-    question: "What if I have multiple locations?",
-    answer: "Invi supports multi-location inventory management from our Professional plan and up. You can view and manage inventory across all locations from a single dashboard, with location-specific forecasting and ordering.",
-  },
-  {
-    question: "How accurate is the forecasting?",
-    answer: "Our AI achieves 90%+ accuracy after learning your business patterns for 2-3 weeks. It factors in sales history, seasonality, local events, weather patterns, and market trends to predict demand. Accuracy improves continuously as the system learns.",
-  },
-  {
-    question: "Can I customize supplier preferences?",
-    answer: "Absolutely! You can set preferred suppliers for each product, define backup suppliers, set minimum order quantities, and customize delivery schedules. Invi respects all your preferences while making smart recommendations.",
-  },
-  {
-    question: "What happens if my internet goes down?",
-    answer: "Invi stores critical data locally on your devices and syncs automatically when connection is restored. Your POS continues to function normally, and Invi catches up on inventory changes once you're back online.",
-  },
-  {
-    question: "Is my data secure?",
-    answer: "Security is our top priority. We use bank-level 256-bit encryption, SOC 2 Type II compliance, and regular third-party security audits. Your data is backed up daily across multiple secure data centers.",
-  },
-  {
-    question: "Can I cancel my subscription anytime?",
-    answer: "Yes, you can cancel anytime with no penalties or fees. If you cancel, you'll have access to your data for 90 days to export or transition to another system. We also offer a 14-day money-back guarantee.",
-  },
-  {
-    question: "Do you offer training and onboarding?",
-    answer: "Every plan includes comprehensive video tutorials and documentation. Professional and Enterprise plans include personalized onboarding sessions with our team. We'll help you get set up and train your staff.",
+    question: "Can I cancel anytime?",
+    answer: "Yes, cancel anytime with no penalties. You'll have 90 days to export your data if needed. We also offer a 14-day money-back guarantee - if Invi doesn't save you time in the first two weeks, we'll refund you fully.",
   },
 ];
 

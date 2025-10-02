@@ -1,0 +1,85 @@
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+
+interface ChatBubbleProps {
+  message: string;
+  isUser?: boolean;
+  timestamp?: string;
+  emoji?: string;
+  className?: string;
+}
+
+export const ChatBubble = ({ message, isUser = false, timestamp, emoji, className }: ChatBubbleProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={cn(
+        "flex",
+        isUser ? "justify-end" : "justify-start",
+        className
+      )}
+    >
+      <div className={cn(
+        "max-w-[80%] rounded-2xl px-4 py-3 shadow-sm",
+        isUser 
+          ? "bg-primary text-primary-foreground rounded-br-sm" 
+          : "bg-card border border-border rounded-bl-sm"
+      )}>
+        <p className="text-sm leading-relaxed whitespace-pre-line">
+          {emoji && <span className="mr-2">{emoji}</span>}
+          {message}
+        </p>
+        {timestamp && (
+          <span className={cn(
+            "text-xs mt-1 block",
+            isUser ? "text-primary-foreground/70" : "text-muted-foreground"
+          )}>
+            {timestamp}
+          </span>
+        )}
+      </div>
+    </motion.div>
+  );
+};
+
+export const TypingIndicator = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="flex justify-start"
+    >
+      <div className="bg-card border border-border rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
+        <div className="flex gap-1">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
+            className="w-2 h-2 bg-muted-foreground/40 rounded-full"
+          />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
+            className="w-2 h-2 bg-muted-foreground/40 rounded-full"
+          />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
+            className="w-2 h-2 bg-muted-foreground/40 rounded-full"
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export const ChatContainer = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  return (
+    <div className={cn(
+      "bg-gradient-to-b from-background to-muted/20 rounded-2xl p-6 space-y-3 shadow-large border border-border",
+      className
+    )}>
+      {children}
+    </div>
+  );
+};

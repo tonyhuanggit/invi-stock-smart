@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -62,14 +62,15 @@ export const CTASection = () => {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Enter your work email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="flex-1 h-12 px-4 rounded-lg"
                 />
                 <Button variant="hero" size="lg" type="submit" className="group">
-                  Get Started
+                  <MessageSquare className="mr-2 h-5 w-5" />
+                  Text with Invi
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>

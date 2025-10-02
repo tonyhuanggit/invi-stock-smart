@@ -2,7 +2,10 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ProblemSection } from "@/components/ProblemSection";
 import { SolutionSection } from "@/components/SolutionSection";
+import { ChatScenariosSection } from "@/components/ChatScenariosSection";
+import { ConversationVsDashboardSection } from "@/components/ConversationVsDashboardSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
+import { PlatformIntegrationSection } from "@/components/PlatformIntegrationSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { StatsSection } from "@/components/StatsSection";
 import { PricingSection } from "@/components/PricingSection";
@@ -18,7 +21,10 @@ const Index = () => {
       <Hero />
       <ProblemSection />
       <SolutionSection />
+      <ChatScenariosSection />
+      <ConversationVsDashboardSection />
       <FeaturesSection />
+      <PlatformIntegrationSection />
       <HowItWorksSection />
       <StatsSection />
       <PricingSection />

@@ -1,14 +1,15 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ChatBubble, ChatContainer } from "@/components/ui/chat-bubble";
 
 const benefits = [
-  "Real-time tracking of every sale and stock movement",
-  "AI-powered forecasting that learns your business patterns",
-  "Automated purchase orders sent directly to suppliers",
-  "Invoice verification to catch errors before you pay",
-  "Waste tracking and nightly reconciliation",
-  "Market intelligence for trending products",
+  "Works in Slack, Microsoft Teams, or SMS - wherever you already chat",
+  "Natural conversations - ask questions like you're texting a friend",
+  "Proactive alerts when stock runs low or deliveries arrive",
+  "One-word approvals - reply 'YES' to reorder, that's it",
+  "Learns your communication style and preferences",
+  "Instant answers to 'How much X do we have?' questions",
 ];
 
 export const SolutionSection = () => {
@@ -27,13 +28,13 @@ export const SolutionSection = () => {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Meet Invi: Your <span className="text-gradient">Always-On</span> Inventory Teammate
+              Chat Your Way to <span className="text-gradient">Perfect Inventory</span>
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8">
-              Invi combines AI-powered forecasting with real-time tracking to automate your entire
-              inventory workflow. It's like having an expert inventory manager working 24/7, without
-              the salary.
+              Invi lives in your messaging apps - Slack, Teams, or SMS. Just chat naturally like you're 
+              texting a coworker. No dashboards, no training, no complexity. Just conversations that keep 
+              your shelves stocked.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -53,52 +54,68 @@ export const SolutionSection = () => {
             </div>
 
             <Button variant="hero" size="lg">
-              See How It Works
+              <MessageSquare className="mr-2 h-5 w-5" />
+              Try a Demo Chat
             </Button>
           </motion.div>
 
-          {/* Right - Visual */}
+          {/* Right - Chat Visual */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-large">
-              <div className="aspect-[4/3] gradient-subtle p-8">
-                <div className="h-full rounded-xl border-2 border-primary/20 bg-card/50 backdrop-blur-sm p-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="w-24 h-24 mx-auto mb-6 rounded-full gradient-primary flex items-center justify-center shadow-glow"
-                    >
-                      <span className="text-white font-bold text-4xl">I</span>
-                    </motion.div>
-                    <p className="text-muted-foreground font-medium">
-                      Smart Inventory Management
-                    </p>
-                  </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-large glass p-6">
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-border">
+                <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">I</span>
+                </div>
+                <div>
+                  <div className="font-semibold">Invi</div>
+                  <div className="text-xs text-muted-foreground">Your AI Store Manager</div>
+                </div>
+                <div className="ml-auto">
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
                 </div>
               </div>
 
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute top-8 right-8 glass rounded-lg p-3 shadow-medium"
-              >
-                <div className="text-xs text-muted-foreground">AI Powered</div>
-                <div className="text-lg font-bold text-secondary">Smart</div>
-              </motion.div>
+              <ChatContainer>
+                <ChatBubble 
+                  message="Good morning! Quick inventory check:" 
+                  isUser={false}
+                  emoji="☀️"
+                  timestamp="8:15 AM"
+                />
+                <ChatBubble 
+                  message="• Matcha: 8 bags left (reorder soon)\n• Milk: Good for 3 days\n• Cups: Running low" 
+                  isUser={false}
+                  timestamp="8:15 AM"
+                />
+                <ChatBubble 
+                  message="Want me to order matcha and cups?" 
+                  isUser={false}
+                  timestamp="8:15 AM"
+                />
+                <ChatBubble 
+                  message="Yes" 
+                  isUser={true}
+                  timestamp="8:18 AM"
+                />
+                <ChatBubble 
+                  message="Done! Orders placed. Delivery Thursday. 🎯" 
+                  isUser={false}
+                  timestamp="8:18 AM"
+                />
+              </ChatContainer>
 
+              {/* Platform Badge */}
               <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-8 left-8 glass rounded-lg p-3 shadow-medium"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute -top-3 -right-3 glass rounded-lg p-2 shadow-medium border border-primary/20"
               >
-                <div className="text-xs text-muted-foreground">Automation</div>
-                <div className="text-lg font-bold text-accent">24/7</div>
+                <div className="text-xs font-semibold text-primary">💬 Slack</div>
               </motion.div>
             </div>
           </motion.div>

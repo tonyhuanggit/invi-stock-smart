@@ -4,33 +4,33 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: Activity,
-    title: "Real-Time Monitoring",
-    description: "Tracks every sale instantly and reconciles daily counts automatically. Always know what's in stock.",
+    title: "💬 Text-First, Not Dashboard-First",
+    description: "Just open your messages and ask. No logging in, no navigation, no hunting for reports.",
   },
   {
     icon: TrendingUp,
-    title: "Smart Forecasting",
-    description: "Predicts demand using sales history, seasonality, and market trends. Order exactly what you need.",
+    title: "🔔 Proactive Alerts in Your Chat",
+    description: "Invi messages you when stock runs low, deliveries arrive, or trends spike. Stay informed without checking.",
   },
   {
     icon: ShoppingCart,
-    title: "Automated Ordering",
-    description: "Generates purchase orders and routes to suppliers with one tap. Never miss a restock deadline.",
+    title: "⚡ Instant Actions, No App Switching",
+    description: "Approve orders, answer questions, and manage inventory right from your chat. One-word replies work.",
   },
   {
     icon: CheckCircle,
-    title: "Invoice Verification",
-    description: "Compares deliveries against orders and flags discrepancies immediately. Pay only for what you receive.",
+    title: "🧠 Learns How You Communicate",
+    description: "Invi adapts to your language and preferences. The more you chat, the smarter it gets.",
   },
   {
     icon: AlertTriangle,
-    title: "Waste Tracking",
-    description: "Records shrink and waste with nightly stock checks. Identify patterns and reduce losses.",
+    title: "📱 Works on Any Device",
+    description: "Phone, desktop, tablet - use Slack, Teams, or SMS. Manage inventory from anywhere.",
   },
   {
     icon: Globe,
-    title: "Market Intelligence",
-    description: "Monitors trends, anticipates shortages, and spots viral products early. Stay ahead of demand.",
+    title: "🤖 Natural Language Understanding",
+    description: "Ask questions like a human, not like a search query. Invi understands context and intent.",
   },
 ];
 
