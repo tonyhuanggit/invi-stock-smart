@@ -4,11 +4,8 @@ import { X, Check, Smartphone, BarChart3 } from "lucide-react";
 const dashboardPains = [
   "Log into another app",
   "Navigate through multiple tabs",
-  "Find the right report",
   "Export to spreadsheet",
   "Manually calculate reorder points",
-  "Switch between tools",
-  "Remember to check daily"
 ];
 
 const conversationBenefits = [
@@ -16,14 +13,12 @@ const conversationBenefits = [
   "Ask questions naturally",
   "Get instant answers",
   "Approve with a quick reply",
-  "Invi does the math for you",
   "Everything in one chat",
-  "Invi reaches out proactively"
 ];
 
 export const ConversationVsDashboardSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden gradient-subtle">
+    <section className="py-16 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative">

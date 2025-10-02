@@ -14,7 +14,7 @@ const benefits = [
 
 export const SolutionSection = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Content */}
@@ -82,30 +82,17 @@ export const SolutionSection = () => {
 
               <ChatContainer>
                 <ChatBubble 
-                  message="Good morning! Quick inventory check:" 
+                  message="Matcha running low - 8 bags left. Want me to reorder?" 
                   isUser={false}
                   emoji="☀️"
-                  timestamp="8:15 AM"
-                />
-                <ChatBubble 
-                  message="• Matcha: 8 bags left (reorder soon)\n• Milk: Good for 3 days\n• Cups: Running low" 
-                  isUser={false}
-                  timestamp="8:15 AM"
-                />
-                <ChatBubble 
-                  message="Want me to order matcha and cups?" 
-                  isUser={false}
-                  timestamp="8:15 AM"
                 />
                 <ChatBubble 
                   message="Yes" 
                   isUser={true}
-                  timestamp="8:18 AM"
                 />
                 <ChatBubble 
-                  message="Done! Orders placed. Delivery Thursday. 🎯" 
+                  message="Done! Order placed. Delivery Thursday 🎯" 
                   isUser={false}
-                  timestamp="8:18 AM"
                 />
               </ChatContainer>
 
