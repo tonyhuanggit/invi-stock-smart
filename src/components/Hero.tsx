@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageSquare, BarChart3, X, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { ChatBubble, ChatContainer } from "@/components/ui/chat-bubble";
+import dashboardImage from "@/assets/dashboard-screenshot.png";
 export const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Gradient Background */}
@@ -105,14 +106,11 @@ export const Hero = () => {
                     <BarChart3 className="w-5 h-5 text-muted-foreground" />
                     <span className="text-sm font-semibold text-muted-foreground">Complex Dashboard</span>
                   </div>
-                  <div className="space-y-2">
-                    
-                    <div className="h-8 bg-muted rounded"></div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="h-16 bg-muted rounded"></div>
-                      <div className="h-16 bg-muted rounded"></div>
-                    </div>
-                  </div>
+                  <img 
+                    src={dashboardImage} 
+                    alt="Complex dashboard interface with multiple charts and data tables" 
+                    className="w-full rounded-lg"
+                  />
                 </div>
               </motion.div>
 
