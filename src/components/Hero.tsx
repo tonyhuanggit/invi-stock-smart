@@ -39,8 +39,7 @@ export const Hero = () => {
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Manage Inventory Like{" "}
-              <span className="text-gradient">You're Texting a Friend</span>
+              <span className="text-gradient">Inventory Management Re-imagined</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
