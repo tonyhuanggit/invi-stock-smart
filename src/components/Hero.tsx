@@ -131,7 +131,7 @@ export const Hero = () => {
                   <span className="text-base font-semibold">Simple Chat</span>
                 </div>
                 <ChatContainer className="p-4">
-                  <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} emoji="🍵" timestamp="9:02 AM" />
+                  <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} timestamp="9:02 AM" />
                   <ChatBubble message="Yes please" isUser={true} timestamp="9:05 AM" />
                   <ChatBubble message="Done! Order placed with your usual supplier. Delivery Thursday ✓" isUser={false} timestamp="9:05 AM" />
                 </ChatContainer>
