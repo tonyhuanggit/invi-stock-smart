@@ -2,10 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageSquare, BarChart3, X, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { ChatBubble, ChatContainer } from "@/components/ui/chat-bubble";
-
 export const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Gradient Background */}
       <div className="absolute inset-0 gradient-hero -z-10" />
       
@@ -16,19 +14,25 @@ export const Hero = () => {
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center lg:text-left"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }} className="text-center lg:text-left">
             {/* Trust Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.9
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            delay: 0.2
+          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               <span className="text-sm font-medium">Trusted by 500+ stores worldwide</span>
             </motion.div>
@@ -72,20 +76,27 @@ export const Hero = () => {
           </motion.div>
 
           {/* Right Content - Chat Interface Comparison */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative hidden lg:block"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 20
+        }} animate={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.3
+        }} className="relative hidden lg:block">
             <div className="space-y-6">
               {/* Dashboard - NO */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="relative"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              delay: 0.5
+            }} className="relative">
                 <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-destructive flex items-center justify-center shadow-lg z-10">
                   <X className="w-6 h-6 text-destructive-foreground" />
                 </div>
@@ -95,7 +106,7 @@ export const Hero = () => {
                     <span className="text-sm font-semibold text-muted-foreground">Complex Dashboard</span>
                   </div>
                   <div className="space-y-2">
-                    <div className="h-8 bg-muted rounded"></div>
+                    
                     <div className="h-8 bg-muted rounded"></div>
                     <div className="grid grid-cols-2 gap-2">
                       <div className="h-16 bg-muted rounded"></div>
@@ -106,12 +117,15 @@ export const Hero = () => {
               </motion.div>
 
               {/* Chat Interface - YES */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="relative"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              delay: 0.7
+            }} className="relative">
                 <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-glow z-10">
                   <Check className="w-6 h-6 text-white" />
                 </div>
@@ -121,22 +135,9 @@ export const Hero = () => {
                     <span className="text-sm font-semibold">Simple Chat</span>
                   </div>
                   <ChatContainer className="p-4">
-                    <ChatBubble 
-                      message="Matcha powder running low! Want me to reorder?" 
-                      isUser={false} 
-                      emoji="🍵"
-                      timestamp="9:02 AM"
-                    />
-                    <ChatBubble 
-                      message="Yes please" 
-                      isUser={true}
-                      timestamp="9:05 AM" 
-                    />
-                    <ChatBubble 
-                      message="Done! Order placed with your usual supplier. Delivery Thursday ✓" 
-                      isUser={false}
-                      timestamp="9:05 AM"
-                    />
+                    <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} emoji="🍵" timestamp="9:02 AM" />
+                    <ChatBubble message="Yes please" isUser={true} timestamp="9:05 AM" />
+                    <ChatBubble message="Done! Order placed with your usual supplier. Delivery Thursday ✓" isUser={false} timestamp="9:05 AM" />
                   </ChatContainer>
                 </div>
               </motion.div>
@@ -144,6 +145,5 @@ export const Hero = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
