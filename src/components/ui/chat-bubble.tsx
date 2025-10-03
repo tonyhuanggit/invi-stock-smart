@@ -21,10 +21,10 @@ export const ChatBubble = ({ message, isUser = false, timestamp, emoji, classNam
       )}
     >
       <div className={cn(
-        "max-w-[80%] rounded-2xl px-4 py-3 shadow-md",
+        "max-w-[80%] rounded-2xl px-4 py-3 shadow-lg",
         isUser 
-          ? "bg-primary text-primary-foreground rounded-br-sm" 
-          : "bg-muted border-2 border-border/50 rounded-bl-sm"
+          ? "bg-primary text-primary-foreground rounded-br-sm border-2 border-primary/20" 
+          : "bg-card border-2 border-border rounded-bl-sm"
       )}>
         <p className="text-sm leading-relaxed whitespace-pre-line">
           {emoji && <span className="mr-2">{emoji}</span>}
@@ -50,7 +50,7 @@ export const TypingIndicator = () => {
       animate={{ opacity: 1 }}
       className="flex justify-start"
     >
-      <div className="bg-muted border-2 border-border/50 rounded-2xl rounded-bl-sm px-4 py-3 shadow-md">
+      <div className="bg-card border-2 border-border rounded-2xl rounded-bl-sm px-4 py-3 shadow-lg">
         <div className="flex gap-1">
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
