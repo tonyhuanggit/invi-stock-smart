@@ -86,60 +86,58 @@ export const Hero = () => {
         }} transition={{
           duration: 0.6,
           delay: 0.3
-        }} className="relative hidden lg:block">
-            <div className="space-y-6">
-              {/* Dashboard - NO */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.5
-            }} className="relative">
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-destructive flex items-center justify-center shadow-lg z-10">
-                  <X className="w-6 h-6 text-destructive-foreground" />
+        }} className="relative hidden lg:block h-[500px]">
+            {/* Dashboard - NO (Smaller, in background) */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            delay: 0.5
+          }} className="absolute top-0 right-0 w-[400px]">
+              <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-destructive flex items-center justify-center shadow-lg z-10">
+                <X className="w-5 h-5 text-destructive-foreground" />
+              </div>
+              <div className="glass rounded-2xl p-4 border-2 border-destructive/20 opacity-50">
+                <div className="flex items-center gap-2 mb-2">
+                  <BarChart3 className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-xs font-semibold text-muted-foreground">Complex Dashboard</span>
                 </div>
-                <div className="glass rounded-2xl p-6 border-2 border-destructive/20 opacity-60">
-                  <div className="flex items-center gap-2 mb-3">
-                    <BarChart3 className="w-5 h-5 text-muted-foreground" />
-                    <span className="text-sm font-semibold text-muted-foreground">Complex Dashboard</span>
-                  </div>
-                  <img 
-                    src={dashboardImage} 
-                    alt="Complex dashboard interface with multiple charts and data tables" 
-                    className="w-full rounded-lg"
-                  />
-                </div>
-              </motion.div>
+                <img 
+                  src={dashboardImage} 
+                  alt="Complex dashboard interface with multiple charts and data tables" 
+                  className="w-full rounded-lg"
+                />
+              </div>
+            </motion.div>
 
-              {/* Chat Interface - YES */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.7
-            }} className="relative">
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-glow z-10">
-                  <Check className="w-6 h-6 text-white" />
+            {/* Chat Interface - YES (Larger, floating on top) */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            delay: 0.7
+          }} className="absolute bottom-0 left-0 w-[480px] z-20">
+              <div className="absolute -top-3 -right-3 w-14 h-14 rounded-full gradient-primary flex items-center justify-center shadow-glow z-10">
+                <Check className="w-7 h-7 text-white" />
+              </div>
+              <div className="glass rounded-2xl p-8 shadow-large border-2 border-primary/20">
+                <div className="flex items-center gap-2 mb-4">
+                  <MessageSquare className="w-6 h-6 text-primary" />
+                  <span className="text-base font-semibold">Simple Chat</span>
                 </div>
-                <div className="glass rounded-2xl p-6 shadow-large border-2 border-primary/20">
-                  <div className="flex items-center gap-2 mb-4">
-                    <MessageSquare className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold">Simple Chat</span>
-                  </div>
-                  <ChatContainer className="p-4">
-                    <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} emoji="🍵" timestamp="9:02 AM" />
-                    <ChatBubble message="Yes please" isUser={true} timestamp="9:05 AM" />
-                    <ChatBubble message="Done! Order placed with your usual supplier. Delivery Thursday ✓" isUser={false} timestamp="9:05 AM" />
-                  </ChatContainer>
-                </div>
-              </motion.div>
-            </div>
+                <ChatContainer className="p-4">
+                  <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} emoji="🍵" timestamp="9:02 AM" />
+                  <ChatBubble message="Yes please" isUser={true} timestamp="9:05 AM" />
+                  <ChatBubble message="Done! Order placed with your usual supplier. Delivery Thursday ✓" isUser={false} timestamp="9:05 AM" />
+                </ChatContainer>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
