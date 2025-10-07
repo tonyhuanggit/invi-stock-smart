@@ -39,19 +39,25 @@ export const Hero = () => {
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-gradient text-5xl md:text-6xl lg:text-7xl block mb-2">Inventory management</span>
-              <span className="text-gradient text-3xl md:text-4xl lg:text-5xl block">
-                {Array.from("conversational by design").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 + index * 0.05 }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
+       {Array.from("conversational by design").map((char, index) => (
+  <motion.span
+    key={index}
+    animate={{
+      opacity: [0, 1, 0]
+    }}
+    transition={{
+      duration: 2,
+      repeat: Infinity,
+      repeatDelay: 1,
+      delay: index * 0.05,
+      ease: "easeInOut"
+    }}
+  >
+    {char}
+  </motion.span>
+))}
+   
+  
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
