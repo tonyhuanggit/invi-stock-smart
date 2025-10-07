@@ -39,8 +39,10 @@ export const Hero = () => {
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-gradient">
-                Inventory management, 
+              <span className="text-gradient block">
+                Inventory management,
+              </span>
+              <span className="text-gradient block text-2xl md:text-3xl lg:text-4xl">
                 {"conversational by design".split("").map((char, index) => (
                   <motion.span
                     key={`${char}-${index}`}
