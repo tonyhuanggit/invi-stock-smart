@@ -42,24 +42,26 @@ export const Hero = () => {
               <span className="text-gradient block">
                 Inventory management,
               </span>
-              <span className="text-gradient block text-2xl md:text-3xl lg:text-4xl">
-                {"conversational by design".split("").map((char, index) => (
-                  <motion.span
-                    key={`${char}-${index}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: [0, 1, 1, 0] }}
-                    transition={{
-                      duration: 3,
-                      delay: index * 0.05,
-                      repeat: Infinity,
-                      repeatDelay: 0.5,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
+              <div className="inline-block mt-2">
+                <div className="bg-primary text-primary-foreground px-6 py-3 rounded-3xl shadow-lg text-2xl md:text-3xl lg:text-4xl font-semibold">
+                  {"conversational by design".split("").map((char, index) => (
+                    <motion.span
+                      key={`${char}-${index}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0] }}
+                      transition={{
+                        duration: 3,
+                        delay: index * 0.05,
+                        repeat: Infinity,
+                        repeatDelay: 0.5,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
