@@ -53,6 +53,7 @@ All colors MUST be HSL.
     /* iMessage bubble */
     --imessage-blue: linear-gradient(180deg, #0b84ff, #0a6be6);
     --bubble-radius: 18px;
+    --page-bg: hsl(209 3% 52%);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -60,6 +61,7 @@ All colors MUST be HSL.
   .dark {
     --background: 225 20% 10%;
     --foreground: 0 0% 98%;
+    --page-bg: hsl(225 20% 10%);
 
     --card: 225 18% 14%;
     --card-foreground: 0 0% 98%;
@@ -142,6 +144,7 @@ All colors MUST be HSL.
 
   .imessage-bubble {
     position: relative;
+    overflow: visible;
     background: var(--imessage-blue);
     color: white;
     border-radius: var(--bubble-radius);
@@ -149,16 +152,30 @@ All colors MUST be HSL.
     box-shadow: 0 1px 0 rgba(0,0,0,.2), 0 8px 24px rgba(0,0,0,.25);
   }
 
+  /* Mask to carve the curved join */
+  .imessage-bubble::before {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--page-bg);
+    border-bottom-right-radius: 8px;
+  }
+
+  /* Tail body */
   .imessage-bubble::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    right: -3px;
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(180deg, #0b84ff, #0a6be6);
+    right: 6px;
+    bottom: -4px;
+    width: 14px;
+    height: 14px;
+    background: inherit;
     transform: rotate(45deg);
-    border-bottom-right-radius: 4px;
-    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    transform-origin: center;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.12);
   }
 }
