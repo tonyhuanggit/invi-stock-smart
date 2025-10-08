@@ -50,6 +50,10 @@ All colors MUST be HSL.
     --shadow-large: 0 20px 40px -8px hsl(237 56% 45% / 0.15);
     --shadow-glow: 0 0 40px hsl(270 60% 50% / 0.25);
 
+    /* iMessage bubble */
+    --imessage-blue: linear-gradient(180deg, #0b84ff, #0a6be6);
+    --bubble-radius: 18px;
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -134,5 +138,27 @@ All colors MUST be HSL.
 
   .shadow-glow {
     box-shadow: var(--shadow-glow);
+  }
+
+  .imessage-bubble {
+    position: relative;
+    background: var(--imessage-blue);
+    color: white;
+    border-radius: var(--bubble-radius);
+    border-top-right-radius: 6px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.2), 0 8px 24px rgba(0,0,0,.25);
+  }
+
+  .imessage-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(180deg, #0b84ff, #0a6be6);
+    transform: rotate(45deg);
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
   }
 }
