@@ -135,4 +135,79 @@ All colors MUST be HSL.
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
+
+  /* iMessage Bubble Styles */
+  .imessage-bubble {
+    position: relative;
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 18px;
+    border-top-right-radius: 6px;
+    background: linear-gradient(180deg, #0b84ff 0%, #0a6be6 100%);
+    color: #ffffff;
+    font-weight: 500;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.25);
+    overflow: visible;
+  }
+
+  /* Tail body - inherits gradient */
+  .imessage-bubble::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    bottom: -4px;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(180deg, #0b84ff 0%, #0a6be6 100%);
+    transform: rotate(45deg);
+    transform-origin: center;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+    z-index: -1;
+  }
+
+  /* Curved join mask */
+  .imessage-bubble::before {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background: hsl(var(--background));
+    border-bottom-right-radius: 8px;
+    z-index: 1;
+  }
+
+  .dark .imessage-bubble::before {
+    background: hsl(var(--background));
+  }
+
+  /* Gray incoming bubble variant */
+  .imessage-bubble-gray {
+    background: linear-gradient(180deg, #e5e5ea 0%, #d1d1d6 100%);
+    color: #000000;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 6px;
+  }
+
+  .imessage-bubble-gray::after {
+    right: auto;
+    left: 6px;
+    background: linear-gradient(180deg, #e5e5ea 0%, #d1d1d6 100%);
+  }
+
+  .imessage-bubble-gray::before {
+    right: auto;
+    left: 12px;
+  }
+
+  .dark .imessage-bubble-gray {
+    background: linear-gradient(180deg, #3a3a3c 0%, #2c2c2e 100%);
+    color: #ffffff;
+  }
+
+  .dark .imessage-bubble-gray::after {
+    background: linear-gradient(180deg, #3a3a3c 0%, #2c2c2e 100%);
+  }
 }

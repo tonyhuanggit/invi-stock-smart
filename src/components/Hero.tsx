@@ -43,7 +43,7 @@ export const Hero = () => {
                 Inventory management,
               </span>
               <div className="inline-block mt-2">
-                <div className="bg-primary text-primary-foreground px-6 py-3 rounded-3xl shadow-lg text-2xl md:text-3xl lg:text-4xl font-semibold">
+                <div className="imessage-bubble text-2xl md:text-3xl lg:text-4xl font-semibold">
                   conversational by design
                 </div>
               </div>
