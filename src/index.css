@@ -142,7 +142,6 @@ All colors MUST be HSL.
     display: inline-block;
     padding: 10px 14px;
     border-radius: 18px;
-    border-top-right-radius: 6px;
     background: linear-gradient(180deg, #0b84ff 0%, #0a6be6 100%);
     color: #ffffff;
     font-weight: 500;
@@ -154,10 +153,10 @@ All colors MUST be HSL.
   .imessage-bubble::after {
     content: "";
     position: absolute;
-    right: 6px;
+    right: -4px;
     bottom: -4px;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background: linear-gradient(180deg, #0b84ff 0%, #0a6be6 100%);
     transform: rotate(45deg);
     transform-origin: center;
@@ -170,12 +169,12 @@ All colors MUST be HSL.
   .imessage-bubble::before {
     content: "";
     position: absolute;
-    right: 12px;
-    bottom: 0;
-    width: 10px;
-    height: 10px;
+    right: 8px;
+    bottom: -1px;
+    width: 14px;
+    height: 14px;
     background: hsl(var(--background));
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 10px;
     z-index: 1;
   }
 
