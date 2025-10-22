@@ -210,6 +210,17 @@ All colors MUST be HSL.
   }
 
   .dark .imessage-bubble-gray::after {
-    background: #2c2c2e;
-  }
+  background: #2c2c2e;
+}
+
+/* Fix for blurry conversational bubble image */
+img[alt="Conversational by Design"] {
+  transform: scale(1) translateZ(0) !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  will-change: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 }

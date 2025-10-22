@@ -43,11 +43,13 @@ export const Hero = () => {
               <span className="text-gradient block">
                 Inventory management,
               </span>
-              <img 
-                src={conversationalBubble} 
-                alt="Conversational by Design" 
-                className="inline-block mt-2 max-w-[400px] w-full h-auto"
-              />
+              <div className="inline-block mt-2 max-w-[400px] w-full" style={{ transform: 'scale(1) translateZ(0)' }}>
+                <img 
+                  src={conversationalBubble} 
+                  alt="Conversational by Design" 
+                  className="w-full h-auto"
+                />
+              </div>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
