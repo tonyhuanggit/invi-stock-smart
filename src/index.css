@@ -213,6 +213,14 @@ All colors MUST be HSL.
   background: #2c2c2e;
 }
 
+/* San Francisco Font */
+@font-face {
+  font-family: "SanFrancisco";
+  src:
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+}
+
 /* iMessage Chat Bubble for Hero */
 .imessage-container {
   display: inline-block;
@@ -221,12 +229,12 @@ All colors MUST be HSL.
 
 .imessage-wrapper {
   background-color: hsl(var(--card));
-  border: 1px solid hsl(var(--border));
-  border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "SanFrancisco", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.25rem;
+  margin: 0 auto;
+  max-width: 600px;
   padding: 0.5rem 1.5rem;
 }
 
@@ -272,7 +280,7 @@ All colors MUST be HSL.
 
 .imessage-wrapper .message-status {
   align-self: flex-end;
-  color: hsl(var(--muted-foreground));
+  color: #8e8e93;
   font-size: 0.75rem;
   margin-top: 0.25rem;
   margin-right: 0.5rem;
