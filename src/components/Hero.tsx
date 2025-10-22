@@ -3,6 +3,7 @@ import { ArrowRight, MessageSquare, BarChart3, X, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { ChatBubble, ChatContainer } from "@/components/ui/chat-bubble";
 import dashboardImage from "@/assets/dashboard-screenshot.png";
+import conversationalBubble from "@/assets/conversational-bubble.png";
 export const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Gradient Background */}
@@ -42,11 +43,11 @@ export const Hero = () => {
               <span className="text-gradient block">
                 Inventory management,
               </span>
-              <div className="inline-block mt-2">
-                <div className="imessage-bubble text-2xl md:text-3xl lg:text-4xl font-semibold">
-                  conversational by design
-                </div>
-              </div>
+              <img 
+                src={conversationalBubble} 
+                alt="Conversational by Design" 
+                className="inline-block mt-2 max-w-[400px] w-full h-auto"
+              />
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
