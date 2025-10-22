@@ -43,12 +43,11 @@ export const Hero = () => {
               <span className="text-gradient block">
                 Inventory management,
               </span>
-              <div className="inline-block mt-2 max-w-[400px] w-full" style={{ transform: 'scale(1) translateZ(0)' }}>
-                <img 
-                  src={conversationalBubble} 
-                  alt="Conversational by Design" 
-                  className="w-full h-auto"
-                />
+              <div className="imessage-container mt-2">
+                <div className="imessage-wrapper">
+                  <p className="from-me">Conversational by Design</p>
+                  <span className="message-status">Read 9:36 AM</span>
+                </div>
               </div>
             </h1>
 
