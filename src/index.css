@@ -290,4 +290,34 @@ All colors MUST be HSL.
     margin-top: 0.25rem;
     margin-right: 0.5rem;
   }
+
+.imessage-wrapper p.from-them {
+  align-self: flex-start;
+  background-color: #e5e5ea;
+  color: #000;
+}
+
+.imessage-wrapper p.from-them::before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #e5e5ea;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+.imessage-wrapper p.from-them::after {
+  background-color: hsl(var(--background));
+  border-bottom-right-radius: 0.5rem;
+  left: -40px;
+  transform: translate(30px, -2px);
+  width: 10px;
+}
+
+.dark .imessage-wrapper p.from-them {
+  background-color: #3a3a3c;
+  color: #fff;
+}
+
+.dark .imessage-wrapper p.from-them::before {
+  border-left-color: #3a3a3c;
+}
 }
