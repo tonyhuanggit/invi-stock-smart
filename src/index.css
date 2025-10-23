@@ -299,14 +299,15 @@ All colors MUST be HSL.
   max-width: 75%;
 }
 
-.imessage-wrapper p.from-them::before {
+/* Tail for the last bubble in a group - only show on .tail class */
+.imessage-wrapper p.from-them.tail::before {
   border-bottom-right-radius: 0.8rem 0.7rem;
   border-left: 1rem solid #e5e5ea;
   left: -0.35rem;
   transform: translate(0, -0.1rem);
 }
 
-.imessage-wrapper p.from-them::after {
+.imessage-wrapper p.from-them.tail::after {
   background-color: hsl(var(--background));
   border-bottom-right-radius: 0.5rem;
   left: -40px;
@@ -319,7 +320,7 @@ All colors MUST be HSL.
   color: #fff;
 }
 
-.dark .imessage-wrapper p.from-them::before {
+.dark .imessage-wrapper p.from-them.tail::before {
   border-left-color: #3a3a3c;
 }
 }

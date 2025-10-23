@@ -53,7 +53,8 @@ export const Hero = () => {
 
             <div className="imessage-container mb-8">
               <div className="imessage-wrapper">
-                <p className="from-them">No dashboards. No spreadsheets. Just chat with your AI store manager through Slack, Teams, or SMS.</p>
+                <p className="from-them">No dashboards. No spreadsheets.</p>
+                <p className="from-them tail">Just chat with your AI store manager through Slack, Teams, or SMS.</p>
               </div>
             </div>
 
