@@ -278,11 +278,11 @@ All colors MUST be HSL.
   width: 10px;
 }
 
-.imessage-wrapper .message-status {
-  align-self: flex-end;
-  color: #8e8e93;
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-  margin-right: 0.5rem;
-}
+  .imessage-wrapper .message-status {
+    align-self: flex-end;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    margin-right: 0.5rem;
+  }
 }
