@@ -252,6 +252,7 @@ All colors MUST be HSL.
   word-wrap: break-word;
   margin: 0.5rem 0;
   width: fit-content;
+  font-weight: 500;
 }
 
 .imessage-wrapper p::before,
@@ -295,6 +296,7 @@ All colors MUST be HSL.
   align-self: flex-start;
   background-color: #e5e5ea;
   color: #000;
+  max-width: 75%;
 }
 
 .imessage-wrapper p.from-them::before {
