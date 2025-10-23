@@ -223,7 +223,7 @@ All colors MUST be HSL.
 
 /* iMessage Chat Bubble for Hero */
 .imessage-container {
-  display: inline-block;
+  display: block;
   max-width: 1200px;
 }
 
