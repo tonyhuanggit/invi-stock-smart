@@ -39,7 +39,7 @@ export const Hero = () => {
               <span className="text-sm font-medium">Trusted by 500+ stores worldwide</span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-normal">
               <span className="text-gradient block">
                 Inventory management
               </span>
