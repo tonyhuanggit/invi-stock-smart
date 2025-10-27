@@ -9,17 +9,17 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Vibrant gradient background */
-    --background: 225 20% 15%;
-    --foreground: 0 0% 96%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
 
-    /* Dark glass cards */
-    --card: 225 15% 20%;
-    --card-foreground: 0 0% 96%;
+    /* Frosted white glass cards */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 225 15% 20%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    /* Primary gradient */
+    /* Primary purple blue */
     --primary: 246 66% 72%;
     --primary-foreground: 0 0% 100%;
     --primary-hover: 246 66% 65%;
@@ -28,9 +28,9 @@ All colors MUST be HSL.
     --secondary: 270 60% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted light text */
-    --muted: 225 15% 25%;
-    --muted-foreground: 0 0% 96%;
+    /* Dark muted text for readability */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 18%;
 
     /* Accent purple pink */
     --accent: 280 70% 65%;
@@ -39,42 +39,41 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Gradient borders */
-    --border: 0 0% 96%;
-    --input: 225 15% 25%;
+    /* Subtle borders */
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
     --ring: 246 66% 72%;
 
     --radius: 1.25rem;
 
-    /* Custom tokens for gradient border glassmorphism */
+    /* Custom tokens for glassmorphism design */
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     --gradient-accent: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
     --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     --gradient-background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    --gradient-border: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
     
-    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.4);
-    --shadow-large: 0 12px 40px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.5);
+    --shadow-soft: 0 2px 10px -2px rgba(31, 38, 135, 0.1);
+    --shadow-medium: 0 8px 24px -4px rgba(31, 38, 135, 0.12);
+    --shadow-large: 0 8px 32px rgba(31, 38, 135, 0.15);
+    --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.3);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Dark glass effect */
-    --glass-bg: rgba(40, 40, 50, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    /* Frosted white glass effect */
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.5);
   }
 
   .dark {
-    /* Same as light mode for consistency */
-    --background: 225 20% 15%;
-    --foreground: 0 0% 96%;
+    /* Dark mode uses same gradient but darker glass */
+    --background: 225 20% 10%;
+    --foreground: 0 0% 98%;
 
-    --card: 225 15% 20%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 225 15% 20%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
     --primary: 246 66% 72%;
     --primary-foreground: 0 0% 100%;
@@ -83,8 +82,8 @@ All colors MUST be HSL.
     --secondary: 270 60% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 225 15% 25%;
-    --muted-foreground: 0 0% 96%;
+    --muted: 225 18% 18%;
+    --muted-foreground: 0 0% 18%;
 
     --accent: 280 70% 65%;
     --accent-foreground: 0 0% 100%;
@@ -92,12 +91,12 @@ All colors MUST be HSL.
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 96%;
-    --input: 225 15% 25%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
     --ring: 246 66% 72%;
     
-    --glass-bg: rgba(40, 40, 50, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -117,14 +116,14 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
-  /* Ensure all headings are light for readability */
+  /* Ensure all headings are dark for readability */
   h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
+    color: #1a1a1a;
   }
   
-  /* Ensure all body text is light */
+  /* Ensure all body text is dark */
   p, span, label, li {
-    color: #f5f5f5;
+    color: #2d2d2d;
   }
 }
 
@@ -146,32 +145,19 @@ All colors MUST be HSL.
   }
 
   .glass {
-    position: relative;
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     box-shadow: var(--shadow-large);
-    color: #f5f5f5;
-  }
-
-  .glass::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 20px;
-    padding: 2px;
-    background: var(--gradient-border);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
   }
 
   .dark .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
   }
 
   .text-gradient {
