@@ -10,6 +10,7 @@ import { StatsSection } from "@/components/StatsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { PricingSection } from "@/components/PricingSection";
 import { FAQSection } from "@/components/FAQSection";
+import { WhyChooseInviSection } from "@/components/WhyChooseInviSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -42,6 +43,7 @@ const Index = () => {
       
       {/* Final Conversion */}
       <FAQSection />
+      <WhyChooseInviSection />
       <CTASection />
       <Footer />
     </div>
