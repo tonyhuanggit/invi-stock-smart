@@ -40,7 +40,7 @@ export const Navigation = () => {
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center shadow-md group-hover:shadow-glow transition-all duration-300">
               <span className="text-white font-bold text-xl">I</span>
             </div>
-            <span className="text-2xl font-bold text-foreground">Invi</span>
+            <span className="text-2xl font-bold" style={{ color: '#1a1a1a' }}>Invi</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,7 +49,8 @@ export const Navigation = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                className="font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                style={{ color: '#2d2d2d' }}
               >
                 {link.name}
               </Link>
@@ -73,7 +74,8 @@ export const Navigation = () => {
                     key={link.name}
                     to={link.href}
                     onClick={handleLinkClick}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                    style={{ color: '#2d2d2d' }}
                   >
                     {link.name}
                   </Link>
