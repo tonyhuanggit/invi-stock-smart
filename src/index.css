@@ -66,8 +66,8 @@ All colors MUST be HSL.
     /* Invi Glow Bubble - High-tech blue glow effect */
     --glow-blue-light: 198 100% 68%;
     --glow-blue-dark: 214 81% 51%;
-    --shadow-glow-bubble: 0 0 60px rgba(91, 188, 255, 0.7), 0 0 90px rgba(26, 115, 232, 0.4);
-    --shadow-glow-bubble-hover: 0 0 80px rgba(91, 188, 255, 0.9), 0 0 120px rgba(26, 115, 232, 0.6);
+    --shadow-glow-bubble: 0 0 35px rgba(91, 188, 255, 0.4);
+    --shadow-glow-bubble-hover: 0 0 50px rgba(91, 188, 255, 0.6), 0 0 80px rgba(26, 115, 232, 0.3);
   }
 
   .dark {
@@ -274,7 +274,7 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow-bubble);
   }
   50% {
-    box-shadow: 0 0 75px rgba(91, 188, 255, 0.8), 0 0 110px rgba(26, 115, 232, 0.5);
+    box-shadow: 0 0 45px rgba(91, 188, 255, 0.5), 0 0 70px rgba(26, 115, 232, 0.2);
   }
 }
 
