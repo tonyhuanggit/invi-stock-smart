@@ -34,7 +34,7 @@ export const Hero = () => {
             scale: 1
           }} transition={{
             delay: 0.2
-          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glow-border mb-6">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               <span className="text-sm font-medium" style={{ color: '#2d2d2d' }}>Trusted by 500+ stores worldwide</span>
             </motion.div>
