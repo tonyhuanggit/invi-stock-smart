@@ -254,7 +254,7 @@ All colors MUST be HSL.
     url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
 }
 
-/* iMessage Chat Bubble Container */
+/* iMessage Chat Bubble for Hero */
 .imessage-container {
   display: block;
   max-width: 1200px;
@@ -288,98 +288,72 @@ All colors MUST be HSL.
   font-weight: 500;
 }
 
-/* Remove default pseudo-elements */
 .imessage-wrapper p::before,
 .imessage-wrapper p::after {
-  content: none;
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
 }
 
-/* Blue Bubble - "from-me" (sent messages) */
 .imessage-wrapper p.from-me {
   align-self: flex-end;
   background-color: #248bf5;
   color: #fff;
-  border-bottom-right-radius: 0.3rem;
 }
 
-/* Gray/White Bubble - "from-them" (received messages) */
+.imessage-wrapper p.from-me::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #248bf5;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+.imessage-wrapper p.from-me::after {
+  background-color: hsl(var(--background));
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+  .imessage-wrapper .message-status {
+    align-self: flex-end;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    margin-right: 0.5rem;
+  }
+
 .imessage-wrapper p.from-them {
   align-self: flex-start;
   background-color: #e5e5ea;
   color: #000;
   max-width: 75%;
-  border-bottom-left-radius: 1.15rem;
 }
 
-/* Tail for blue bubble (sent) - only show on .tail class */
-.imessage-wrapper p.from-me.tail {
-  border-bottom-right-radius: 0.3rem;
-}
-
-.imessage-wrapper p.from-me.tail::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -8px;
-  width: 20px;
-  height: 20px;
-  background-color: #248bf5;
-  border-bottom-right-radius: 15px;
-}
-
-.imessage-wrapper p.from-me.tail::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -10px;
-  width: 10px;
-  height: 20px;
-  background-color: hsl(var(--background));
-  border-bottom-left-radius: 10px;
-}
-
-/* Tail for gray bubble (received) - only show on .tail class */
-.imessage-wrapper p.from-them.tail {
-  border-bottom-left-radius: 0.3rem;
-}
-
+/* Tail for the last bubble in a group - only show on .tail class */
 .imessage-wrapper p.from-them.tail::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -8px;
-  width: 20px;
-  height: 20px;
-  background-color: #e5e5ea;
-  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #e5e5ea;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
 }
 
 .imessage-wrapper p.from-them.tail::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -10px;
-  width: 10px;
-  height: 20px;
   background-color: hsl(var(--background));
-  border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 0.5rem;
+  left: -40px;
+  transform: translate(30px, -2px);
+  width: 10px;
 }
 
-.imessage-wrapper .message-status {
-  align-self: flex-end;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-  margin-right: 0.5rem;
-}
-
-/* Dark mode variants */
 .dark .imessage-wrapper p.from-them {
   background-color: #3a3a3c;
   color: #fff;
 }
 
 .dark .imessage-wrapper p.from-them.tail::before {
-  background-color: #3a3a3c;
+  border-left-color: #3a3a3c;
 }
 }
