@@ -278,6 +278,44 @@ All colors MUST be HSL.
   }
 }
 
+/* Rotating Glow Border Effect */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+.glow-border {
+  position: relative;
+  border-radius: 12px;
+  background: #1c1f2b;
+  padding: 2em;
+  z-index: 1;
+}
+
+.glow-border::before,
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: conic-gradient(from var(--angle),
+    #4f46e5, #00ff99, #006aff, #ff0095, #4f46e5);
+  z-index: -1;
+  padding: 2px;
+  animation: spin 4s linear infinite;
+}
+
+.glow-border::before {
+  filter: blur(1.5rem);
+  opacity: 0.4;
+}
+
 /* San Francisco Font */
 @font-face {
   font-family: "SanFrancisco";
