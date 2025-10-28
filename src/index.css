@@ -278,6 +278,36 @@ All colors MUST be HSL.
   }
 }
 
+/* Rotating Ring Glow - Premium light circling effect */
+.rotating-ring-glow {
+  position: relative;
+  overflow: visible;
+}
+
+.rotating-ring-glow::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 270deg,
+    rgba(91, 188, 255, 0.8) 300deg,
+    rgba(26, 115, 232, 0.6) 330deg,
+    transparent 360deg
+  );
+  animation: rotate-ring 8s linear infinite;
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* San Francisco Font */
 @font-face {
   font-family: "SanFrancisco";
