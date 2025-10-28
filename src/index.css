@@ -310,7 +310,7 @@ All colors MUST be HSL.
 }
 
 .imessage-wrapper p.from-me::after {
-  background-color: hsl(var(--background));
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   border-bottom-left-radius: 0.5rem;
   right: -40px;
   transform: translate(-30px, -2px);
@@ -341,7 +341,7 @@ All colors MUST be HSL.
 }
 
 .imessage-wrapper p.from-them.tail::after {
-  background-color: hsl(var(--background));
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   border-bottom-right-radius: 0.5rem;
   left: -40px;
   transform: translate(30px, -2px);
