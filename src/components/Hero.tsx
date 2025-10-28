@@ -134,7 +134,7 @@ export const Hero = () => {
           }} transition={{
             delay: 0.7
           }} className="absolute bottom-0 left-0 w-[480px] z-20">
-              <div className="absolute -top-3 -right-3 w-14 h-14 rounded-full gradient-primary flex items-center justify-center shadow-glow z-10">
+              <div className="absolute -top-3 -right-3 w-14 h-14 invi-glow-bubble flex items-center justify-center z-10">
                 <Check className="w-7 h-7 text-white" />
               </div>
               <div className="glass rounded-2xl p-8 shadow-large border-2 border-primary/20">
