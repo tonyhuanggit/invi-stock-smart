@@ -278,6 +278,62 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes rotate-glow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Rotating Gradient Glow Ring */
+.rotating-glow {
+  position: relative;
+  z-index: 1;
+}
+
+.rotating-glow::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    hsl(246, 66%, 72%),
+    hsl(198, 100%, 68%),
+    hsl(280, 70%, 65%),
+    hsl(246, 66%, 72%)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: blur(8px);
+  opacity: 0.7;
+  animation: rotate-glow 5s linear infinite;
+  z-index: -1;
+}
+
+.rotating-glow::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    hsl(246, 66%, 72%),
+    hsl(198, 100%, 68%),
+    hsl(280, 70%, 65%),
+    hsl(246, 66%, 72%)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-glow 5s linear infinite;
+  z-index: -1;
+}
+
 /* San Francisco Font */
 @font-face {
   font-family: "SanFrancisco";
