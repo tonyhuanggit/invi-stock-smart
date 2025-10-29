@@ -73,7 +73,10 @@ export const SolutionSection = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Invi</div>
-                  <div className="text-xs text-muted-foreground">Online</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Online
+                  </div>
                 </div>
                 <div className="ml-auto">
                   <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
