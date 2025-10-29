@@ -67,7 +67,7 @@ const Index = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 border-border/50">
-                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 invi-glow-bubble flex items-center justify-center mb-6">
                     <feature.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-3">{feature.title}</h3>

@@ -66,8 +66,8 @@ All colors MUST be HSL.
     /* Invi Glow Bubble - High-tech blue glow effect */
     --glow-blue-light: 198 100% 68%;
     --glow-blue-dark: 214 81% 51%;
-    --shadow-glow-bubble: 0 0 35px rgba(91, 188, 255, 0.4);
-    --shadow-glow-bubble-hover: 0 0 50px rgba(91, 188, 255, 0.6), 0 0 80px rgba(26, 115, 232, 0.3);
+    --shadow-glow-bubble: 0 0 60px rgba(91, 188, 255, 0.7), 0 0 90px rgba(26, 115, 232, 0.4);
+    --shadow-glow-bubble-hover: 0 0 80px rgba(91, 188, 255, 0.9), 0 0 120px rgba(26, 115, 232, 0.6);
   }
 
   .dark {
@@ -274,64 +274,46 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow-bubble);
   }
   50% {
-    box-shadow: 0 0 45px rgba(91, 188, 255, 0.5), 0 0 70px rgba(26, 115, 232, 0.2);
+    box-shadow: 0 0 75px rgba(91, 188, 255, 0.8), 0 0 110px rgba(26, 115, 232, 0.5);
   }
 }
 
-@keyframes rotate-glow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Rotating Glow Border Effect */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 
-/* Rotating Gradient Glow Ring */
-.rotating-glow {
+@keyframes spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+.glow-border {
   position: relative;
+  border-radius: 12px;
+  background: #1c1f2b;
+  padding: 2em;
   z-index: 1;
 }
 
-.rotating-glow::before {
+.glow-border::before,
+.glow-border::after {
   content: "";
   position: absolute;
-  inset: -3px;
+  inset: 0;
   border-radius: inherit;
-  padding: 2px;
-  background: conic-gradient(
-    from 0deg,
-    hsl(246, 66%, 72%),
-    hsl(198, 100%, 68%),
-    hsl(280, 70%, 65%),
-    hsl(246, 66%, 72%)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  filter: blur(8px);
-  opacity: 0.7;
-  animation: rotate-glow 5s linear infinite;
+  background-image: conic-gradient(from var(--angle),
+    #4f46e5, #00ff99, #006aff, #ff0095, #4f46e5);
   z-index: -1;
+  padding: 2px;
+  animation: spin 4s linear infinite;
 }
 
-.rotating-glow::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    hsl(246, 66%, 72%),
-    hsl(198, 100%, 68%),
-    hsl(280, 70%, 65%),
-    hsl(246, 66%, 72%)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: rotate-glow 5s linear infinite;
-  z-index: -1;
+.glow-border::before {
+  filter: blur(1.5rem);
+  opacity: 0.4;
 }
 
 /* San Francisco Font */

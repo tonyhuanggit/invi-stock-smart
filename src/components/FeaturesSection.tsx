@@ -79,7 +79,7 @@ export const FeaturesSection = () => {
               transition={{ delay: index * 0.1 }}
               className="group bg-card p-8 rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 border border-border hover:border-primary/50"
             >
-              <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-6 group-hover:shadow-glow transition-all duration-300">
+              <div className="w-14 h-14 invi-glow-bubble flex items-center justify-center mb-6">
                 <feature.icon className="w-7 h-7 text-white" />
               </div>
 
