@@ -95,15 +95,6 @@ export const SolutionSection = () => {
                   isUser={false}
                 />
               </ChatContainer>
-
-              {/* Platform Badge */}
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute -top-3 -right-3 glass rounded-lg p-2 shadow-medium border border-primary/20"
-              >
-                <div className="text-xs font-semibold text-primary">💬 Slack</div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
