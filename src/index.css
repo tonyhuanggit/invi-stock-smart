@@ -66,8 +66,8 @@ All colors MUST be HSL.
     /* Invi Glow Bubble - High-tech blue glow effect */
     --glow-blue-light: 198 100% 68%;
     --glow-blue-dark: 214 81% 51%;
-    --shadow-glow-bubble: 0 0 60px rgba(91, 188, 255, 0.7), 0 0 90px rgba(26, 115, 232, 0.4);
-    --shadow-glow-bubble-hover: 0 0 80px rgba(91, 188, 255, 0.9), 0 0 120px rgba(26, 115, 232, 0.6);
+    --shadow-glow-bubble: 0 0 35px rgba(91, 188, 255, 0.4);
+    --shadow-glow-bubble-hover: 0 0 50px rgba(91, 188, 255, 0.6), 0 0 80px rgba(26, 115, 232, 0.3);
   }
 
   .dark {
@@ -274,46 +274,8 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow-bubble);
   }
   50% {
-    box-shadow: 0 0 75px rgba(91, 188, 255, 0.8), 0 0 110px rgba(26, 115, 232, 0.5);
+    box-shadow: 0 0 45px rgba(91, 188, 255, 0.5), 0 0 70px rgba(26, 115, 232, 0.2);
   }
-}
-
-/* Rotating Glow Border Effect */
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes spin {
-  from { --angle: 0deg; }
-  to { --angle: 360deg; }
-}
-
-.glow-border {
-  position: relative;
-  border-radius: 12px;
-  background: #1c1f2b;
-  padding: 2em;
-  z-index: 1;
-}
-
-.glow-border::before,
-.glow-border::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background-image: conic-gradient(from var(--angle),
-    #4f46e5, #00ff99, #006aff, #ff0095, #4f46e5);
-  z-index: -1;
-  padding: 2px;
-  animation: spin 4s linear infinite;
-}
-
-.glow-border::before {
-  filter: blur(1.5rem);
-  opacity: 0.4;
 }
 
 /* San Francisco Font */
