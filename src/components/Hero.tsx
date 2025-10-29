@@ -74,19 +74,19 @@ export const Hero = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0">
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left glass p-4 rounded-xl">
                 <div className="text-3xl font-bold text-gradient">85%</div>
                 <div className="text-sm" style={{
                 color: '#2d2d2d'
               }}>Fewer Stockouts</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left glass p-4 rounded-xl">
                 <div className="text-3xl font-bold text-gradient">20+</div>
                 <div className="text-sm" style={{
                 color: '#2d2d2d'
               }}>Hours Saved/Week</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left glass p-4 rounded-xl">
                 <div className="text-3xl font-bold text-gradient">99%</div>
                 <div className="text-sm" style={{
                 color: '#2d2d2d'
