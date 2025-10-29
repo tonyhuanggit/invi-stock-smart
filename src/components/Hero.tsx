@@ -36,7 +36,9 @@ export const Hero = () => {
             delay: 0.2
           }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-sm font-medium" style={{ color: '#2d2d2d' }}>Trusted by 500+ stores worldwide</span>
+              <span className="text-sm font-medium" style={{
+              color: '#2d2d2d'
+            }}>Trusted by 500+ stores worldwide</span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -73,16 +75,22 @@ export const Hero = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0">
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-primary">85%</div>
-                <div className="text-sm" style={{ color: '#2d2d2d' }}>Fewer Stockouts</div>
+                <div className="text-3xl font-bold text-primary bg-transparent">85%</div>
+                <div className="text-sm" style={{
+                color: '#2d2d2d'
+              }}>Fewer Stockouts</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-secondary">20+</div>
-                <div className="text-sm" style={{ color: '#2d2d2d' }}>Hours Saved/Week</div>
+                <div className="text-sm" style={{
+                color: '#2d2d2d'
+              }}>Hours Saved/Week</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-accent">99%</div>
-                <div className="text-sm" style={{ color: '#2d2d2d' }}>Invoice Accuracy</div>
+                <div className="text-3xl font-bold text-accent bg-transparent">99%</div>
+                <div className="text-sm" style={{
+                color: '#2d2d2d'
+              }}>Invoice Accuracy</div>
               </div>
             </div>
           </motion.div>
@@ -113,14 +121,14 @@ export const Hero = () => {
               </div>
               <div className="glass rounded-2xl p-4 border-2 border-destructive/20 opacity-50">
                 <div className="flex items-center gap-2 mb-2">
-                  <BarChart3 className="w-4 h-4" style={{ color: '#2d2d2d' }} />
-                  <span className="text-xs font-semibold" style={{ color: '#2d2d2d' }}>Complex Dashboard</span>
+                  <BarChart3 className="w-4 h-4" style={{
+                  color: '#2d2d2d'
+                }} />
+                  <span className="text-xs font-semibold" style={{
+                  color: '#2d2d2d'
+                }}>Complex Dashboard</span>
                 </div>
-                <img 
-                  src={dashboardImage} 
-                  alt="Complex dashboard interface with multiple charts and data tables" 
-                  className="w-full rounded-lg"
-                />
+                <img src={dashboardImage} alt="Complex dashboard interface with multiple charts and data tables" className="w-full rounded-lg" />
               </div>
             </motion.div>
 
@@ -140,7 +148,9 @@ export const Hero = () => {
               <div className="glass rounded-2xl p-8 shadow-large border-2 border-primary/20">
                 <div className="flex items-center gap-2 mb-4">
                   <MessageSquare className="w-6 h-6 text-primary" />
-                  <span className="text-base font-semibold" style={{ color: '#1a1a1a' }}>Simple Chat</span>
+                  <span className="text-base font-semibold" style={{
+                  color: '#1a1a1a'
+                }}>Simple Chat</span>
                 </div>
                 <ChatContainer className="p-4">
                   <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} timestamp="9:02 AM" />
