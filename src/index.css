@@ -373,7 +373,7 @@ All colors MUST be HSL.
     z-index: 1;
     bottom: 0;
     height: 20px;
-    background: #f1edf7;
+    background: inherent;
     background-attachment: fixed;
     background-size: 100vw 100vh;
     border-bottom-left-radius: 10px;
