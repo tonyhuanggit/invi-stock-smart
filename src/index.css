@@ -344,7 +344,7 @@ All colors MUST be HSL.
     bottom: -0.1rem;
     content: "";
     height: 1rem;
-    position: relative;
+    position: absolute;
   }
 
   .imessage-wrapper p.from-me {
@@ -357,7 +357,7 @@ All colors MUST be HSL.
 
   .imessage-wrapper p.from-me::before {
     content: "";
-    position: relative;
+    position: absolute;
     z-index: 0;
     bottom: 0;
     background: #248bf5;
@@ -369,7 +369,7 @@ All colors MUST be HSL.
 
   .imessage-wrapper p.from-me::after {
     content: "";
-    position: relative;
+    position: absolute;
     z-index: 1;
     bottom: 0;
     height: 20px;
