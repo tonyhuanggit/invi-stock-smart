@@ -339,14 +339,6 @@ All colors MUST be HSL.
     font-weight: 500;
   }
 
-  .imessage-wrapper p::before,
-  .imessage-wrapper p::after {
-    bottom: -0.1rem;
-    content: "";
-    height: 1rem;
-    position: absolute;
-  }
-
   .imessage-wrapper p.from-me {
     align-self: flex-end;
     background-color: #248bf5;
