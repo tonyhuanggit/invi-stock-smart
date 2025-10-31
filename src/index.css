@@ -373,7 +373,7 @@ All colors MUST be HSL.
     z-index: 1;
     bottom: 0;
     height: 20px;
-    background: #7451aa;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     background-attachment: fixed;
     background-size: 100vw 100vh;
     border-bottom-left-radius: 10px;
