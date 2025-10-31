@@ -353,6 +353,7 @@ All colors MUST be HSL.
     color: #fff;
     border-bottom-right-radius: 4px;
     position: relative;
+    isolation: isolate;
   }
 
   .imessage-wrapper p.from-me::before {
