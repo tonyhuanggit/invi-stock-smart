@@ -373,12 +373,13 @@ All colors MUST be HSL.
     z-index: 1;
     bottom: 0;
     height: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: white;
     background-attachment: fixed;
     background-size: 100vw 100vh;
     border-bottom-left-radius: 10px;
-    right: -19px;
-    width: 12px;
+    mix-blend-mode: destination-out;
+    right: -20px;
+    width: 10px;
   }
 
   .imessage-wrapper .message-status {
