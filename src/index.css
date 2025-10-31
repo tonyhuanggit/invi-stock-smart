@@ -373,12 +373,11 @@ All colors MUST be HSL.
     z-index: 1;
     bottom: 0;
     height: 20px;
-    background: white;
+    background: #7c6a9e;
     background-attachment: fixed;
     background-size: 100vw 100vh;
     border-bottom-left-radius: 10px;
-    mix-blend-mode: destination-out;
-    right: -20px;
+    right: -10px;
     width: 10px;
   }
 
