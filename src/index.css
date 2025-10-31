@@ -373,13 +373,13 @@ All colors MUST be HSL.
     z-index: 1;
     bottom: 0;
     height: 20px;
-    background: rgba(116, 80, 169, 0.95);
+    background: rgba(116, 80, 169, 0.9);
     background-attachment: fixed;
     background-size: 100vw 100vh;
     border-bottom-left-radius: 10px;
     right: -10px;
     width: 10px;
-    mix-blend-mode: multiply;
+    mix-blend-mode: overlay;
   }
 
   .imessage-wrapper .message-status {
