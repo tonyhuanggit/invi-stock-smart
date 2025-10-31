@@ -405,7 +405,7 @@ All colors MUST be HSL.
   }
 
   .imessage-wrapper p.from-them.tail::after {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: #6f62c2;
     background-attachment: fixed;
     background-size: 100vw 100vh;
     border-bottom-right-radius: 0.5rem;
