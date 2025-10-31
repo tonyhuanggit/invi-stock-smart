@@ -62,14 +62,8 @@ export const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="xl" className="group">
-                <MessageSquare className="mr-2 h-5 w-5" />
-                Add to Slack
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="xl" className="group">
-                Try with Teams
-              </Button>
+              
+              
             </div>
 
             {/* Stats */}
