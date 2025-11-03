@@ -360,15 +360,24 @@ All colors MUST be HSL.
     position: absolute;
     bottom: 0;
     background: #248bf5;
-    right: -6px;
-    height: 15px;
-    width: 15px;
-    border-radius: 0 0 0 100%;
-    transform: skewx(-10deg);
+    right: -8px;
+    height: 19px;
+    width: 20px;
+    border-bottom-left-radius: 16px;
   }
 
   .imessage-wrapper p.from-me::after {
-    display: none; 
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    height: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    border-bottom-left-radius: 10px;
+    right: -10px;
+    width: 10px;
   }
 
   .imessage-wrapper .message-status {
