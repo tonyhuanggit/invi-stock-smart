@@ -362,9 +362,9 @@ All colors MUST be HSL.
     background: #248bf5;
     right: -6px;
     height: 15px;
-    width: 15px
-    border-radius: 0 0 0 100%
-    transform: skewx(-10deg); 
+    width: 15px;
+    border-radius: 0 0 0 100%;
+    transform: skewx(-10deg);
   }
 
   .imessage-wrapper p.from-me::after {
