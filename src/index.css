@@ -375,14 +375,12 @@ All colors MUST be HSL.
     z-index: 1;
     bottom: 0;
     height: 20px;
-    background: rgba(116, 80, 169, 0.9);
-    background-attachment: fixed;
-    background-size: 100vw 100vh;
-    border-bottom-left-radius: 10px;
-    right: -10px;
-    width: 10px;
-    -webkit-mask: radial-gradient(circle at 10px 10px, white 99%, transparent 100%);
-    mask: radial-gradient(circle at 10px 10px, white 99%, transparent 100%);
+    background: transparent; 
+  border-bottom-left-radius: 10px;
+  right: -10px;
+  width: 10px;
+  -webkit-mask: radial-gradient(circle at 10px 10px, white 99%, transparent 100%);
+  mask: radial-gradient(circle at 10px 10px, white 99%, transparent 100%);
   }
 
   .imessage-wrapper .message-status {
@@ -409,13 +407,11 @@ All colors MUST be HSL.
   }
 
   .imessage-wrapper p.from-them.tail::after {
-    background: #6f62c2;
-    background-attachment: fixed;
-    background-size: 100vw 100vh;
-    border-bottom-right-radius: 0.5rem;
-    left: -40px;
-    transform: translate(30px, -2px);
-    width: 10px;
+    background: transparent; /* Placeholder */
+  border-bottom-right-radius: 0.5rem;
+  left: -40px;
+  transform: translate(30px, -2px);
+  width: 10px;
   }
 
   .dark .imessage-wrapper p.from-them {
@@ -427,3 +423,130 @@ All colors MUST be HSL.
     border-left-color: #3a3a3c;
   }
 }
+// iMessage Tail Dynamic Gradient Color Matcher
+// This script calculates the exact gradient color at each bubble's position
+// and updates the ::after pseudo-element to match perfectly
+
+function updateBubbleTailColors() {
+  // Your gradient definition
+  const gradientAngle = 135; // degrees
+  const colorStops = [
+    { position: 0, color: { r: 102, g: 126, b: 234 } },     // #667eea at 0px
+    { position: 600, color: { r: 118, g: 75, b: 162 } },    // #764ba2 at 600px
+    { position: 1200, color: { r: 240, g: 147, b: 251 } }   // #f093fb at 1200px
+  ];
+
+  // Convert angle to radians for calculation
+  const angleRad = (gradientAngle - 90) * (Math.PI / 180);
+  
+  // Get all chat bubbles
+  const outgoingBubbles = document.querySelectorAll('.imessage-wrapper p.from-me');
+  const incomingBubbles = document.querySelectorAll('.imessage-wrapper p.from-them.tail');
+  
+  // Function to interpolate between two colors
+  function interpolateColor(color1, color2, factor) {
+    return {
+      r: Math.round(color1.r + (color2.r - color1.r) * factor),
+      g: Math.round(color1.g + (color2.g - color1.g) * factor),
+      b: Math.round(color1.b + (color2.b - color1.b) * factor)
+    };
+  }
+  
+  // Function to get color at a specific position along the gradient
+  function getGradientColorAtPosition(x, y) {
+    // Calculate the position along the gradient line
+    // For a 135deg gradient, we project the point onto the gradient line
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate distance along the gradient line (0 to max diagonal)
+    const maxDistance = Math.sqrt(viewportWidth * viewportWidth + viewportHeight * viewportHeight);
+    
+    // Project the point onto the gradient angle
+    const distanceAlongGradient = (x * Math.cos(angleRad) + y * Math.sin(angleRad));
+    
+    // Normalize to 0-1200px range (your gradient stops)
+    const normalizedPosition = (distanceAlongGradient / maxDistance) * 1200;
+    
+    // Find which color stops to interpolate between
+    let color;
+    if (normalizedPosition <= colorStops[0].position) {
+      color = colorStops[0].color;
+    } else if (normalizedPosition >= colorStops[colorStops.length - 1].position) {
+      color = colorStops[colorStops.length - 1].color;
+    } else {
+      // Find the two stops to interpolate between
+      for (let i = 0; i < colorStops.length - 1; i++) {
+        if (normalizedPosition >= colorStops[i].position && 
+            normalizedPosition <= colorStops[i + 1].position) {
+          const range = colorStops[i + 1].position - colorStops[i].position;
+          const factor = (normalizedPosition - colorStops[i].position) / range;
+          color = interpolateColor(colorStops[i].color, colorStops[i + 1].color, factor);
+          break;
+        }
+      }
+    }
+    
+    return `rgb(${color.r}, ${color.g}, ${color.b})`;
+  }
+  
+  // Create or update style element
+  let styleEl = document.getElementById('dynamic-bubble-styles');
+  if (!styleEl) {
+    styleEl = document.createElement('style');
+    styleEl.id = 'dynamic-bubble-styles';
+    document.head.appendChild(styleEl);
+  }
+  
+  let css = '';
+  
+  // Process outgoing bubbles (from-me)
+  outgoingBubbles.forEach((bubble, index) => {
+    const rect = bubble.getBoundingClientRect();
+    const x = rect.right; // Right side of the bubble where tail is
+    const y = rect.bottom;
+    const color = getGradientColorAtPosition(x, y);
+    
+    // Add unique class to this bubble
+    bubble.classList.add(`bubble-out-${index}`);
+    
+    // Generate CSS for this specific bubble's ::after
+    css += `.bubble-out-${index}::after { background: ${color} !important; }\n`;
+  });
+  
+  // Process incoming bubbles (from-them)
+  incomingBubbles.forEach((bubble, index) => {
+    const rect = bubble.getBoundingClientRect();
+    const x = rect.left; // Left side of the bubble where tail is
+    const y = rect.bottom;
+    const color = getGradientColorAtPosition(x, y);
+    
+    // Add unique class to this bubble
+    bubble.classList.add(`bubble-in-${index}`);
+    
+    // Generate CSS for this specific bubble's ::after
+    css += `.bubble-in-${index}::after { background: ${color} !important; }\n`;
+  });
+  
+  styleEl.textContent = css;
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', updateBubbleTailColors);
+
+// Run on window resize with debounce
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(updateBubbleTailColors, 100);
+});
+
+// Run on scroll (in case bubbles move into view)
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(updateBubbleTailColors, 100);
+});
+
+// Export for manual triggering if needed
+window.updateBubbleTailColors = updateBubbleTailColors;
