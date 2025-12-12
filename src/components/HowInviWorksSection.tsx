@@ -86,7 +86,7 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
         className="relative rounded-[44px] border-[3px] border-[#2a2a2a] bg-white p-3"
         style={{ 
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-          aspectRatio: '9 / 19.5'
+          aspectRatio: '9 / 17.5'
         }}
       >
         {/* Dynamic Island */}
