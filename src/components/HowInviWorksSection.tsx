@@ -80,21 +80,27 @@ const features: Feature[] = [
 
 const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) => {
   return (
-    <div className="relative mx-auto w-full max-w-[320px]">
-      {/* Phone outline */}
-      <div className="relative rounded-[40px] border-[8px] border-[#1a1a1a] bg-white p-4 shadow-xl">
-        {/* Notch */}
-        <div className="absolute left-1/2 top-0 h-6 w-24 -translate-x-1/2 rounded-b-2xl bg-[#1a1a1a]" />
+    <div className="relative mx-auto w-full max-w-[280px]">
+      {/* Phone outline - iPhone 15 Pro ratio approx 19.5:9 */}
+      <div 
+        className="relative rounded-[44px] border-[3px] border-[#2a2a2a] bg-white p-3"
+        style={{ 
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+          aspectRatio: '9 / 19.5'
+        }}
+      >
+        {/* Dynamic Island */}
+        <div className="absolute left-1/2 top-3 h-[26px] w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
         
         {/* Screen content */}
-        <div className="min-h-[480px] pt-8">
+        <div className="flex h-full flex-col pt-12">
           {/* Header */}
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <p className="text-sm font-medium text-muted-foreground">Invi</p>
           </div>
           
           {/* Messages */}
-          <div className="space-y-3 px-2">
+          <div className="flex-1 space-y-3 overflow-y-auto px-2">
             <AnimatePresence mode="wait">
               {conversation.map((message, index) => (
                 <motion.div
@@ -113,7 +119,7 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
                     </div>
                   ) : (
                     <div
-                      className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                      className={`max-w-[85%] rounded-2xl px-3 py-2 text-[13px] leading-relaxed ${
                         message.type === "user"
                           ? "rounded-br-md bg-primary text-primary-foreground"
                           : "rounded-bl-md bg-muted text-foreground"
@@ -126,10 +132,10 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
               ))}
             </AnimatePresence>
           </div>
+          
+          {/* Home indicator */}
+          <div className="mx-auto mb-2 mt-4 h-1 w-28 rounded-full bg-[#d1d1d6]" />
         </div>
-        
-        {/* Home indicator */}
-        <div className="mx-auto mt-4 h-1 w-32 rounded-full bg-[#1a1a1a]" />
       </div>
     </div>
   );
