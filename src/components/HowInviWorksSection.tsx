@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 
 interface Feature {
   id: number;
@@ -152,20 +151,45 @@ const FeaturePanel = ({
 }) => {
   return (
     <div
-      className={`cursor-pointer border-b border-border/30 py-5 transition-colors ${
-        isActive ? "bg-transparent" : "hover:bg-muted/20"
-      }`}
+      className="cursor-pointer rounded-lg py-5 px-4 transition-all duration-300 ease-out"
+      style={{
+        background: isActive 
+          ? 'linear-gradient(135deg, #f8f6ff 0%, #fdfcff 100%)' 
+          : 'transparent',
+        transform: !isActive ? 'translateX(0)' : 'none',
+      }}
       onClick={onClick}
+      onMouseEnter={(e) => {
+        if (!isActive) {
+          e.currentTarget.style.background = '#fafafa';
+          e.currentTarget.style.transform = 'translateX(4px)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!isActive) {
+          e.currentTarget.style.background = 'transparent';
+          e.currentTarget.style.transform = 'translateX(0)';
+        }
+      }}
     >
-      <div className="flex items-center justify-between">
-        <h3 className={`text-lg font-semibold transition-colors ${isActive ? "text-primary" : "text-foreground"}`}>
+      <div className="flex items-center gap-4">
+        {/* Circular dot indicator */}
+        <div
+          className="flex-shrink-0 rounded-full transition-all duration-300 ease-out"
+          style={{
+            width: isActive ? '14px' : '10px',
+            height: isActive ? '14px' : '10px',
+            backgroundColor: isActive ? '#8B7DD8' : 'white',
+            border: isActive ? 'none' : '2px solid #d0d0d0',
+            boxShadow: isActive ? '0 0 0 4px rgba(139, 125, 216, 0.15)' : 'none',
+          }}
+        />
+        <h3 
+          className="text-lg font-semibold transition-colors duration-300 ease-out"
+          style={{ color: isActive ? '#8B7DD8' : 'inherit' }}
+        >
           {feature.title}
         </h3>
-        <ChevronDown
-          className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
-            isActive ? "rotate-180" : ""
-          }`}
-        />
       </div>
       
       <AnimatePresence>
@@ -174,10 +198,10 @@ const FeaturePanel = ({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="overflow-hidden"
           >
-            <div className="mt-4 space-y-3">
+            <div className="mt-4 ml-[30px] space-y-3">
               {feature.body.map((paragraph, index) => (
                 <p key={index} className="text-muted-foreground leading-relaxed">
                   {paragraph}
