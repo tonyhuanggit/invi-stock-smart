@@ -25,11 +25,8 @@ const features: Feature[] = [
       "You spend less time double-checking counts and more time making decisions with confidence.",
     ],
     conversation: [
-      { type: "user", text: "How many matcha bags do we have left?" },
-      {
-        type: "invi",
-        text: "You currently have 14 bags in stock across all locations. Based on recent sales, you'll need to reorder within 4 days.",
-      },
+      { type: "user", text: "How many matcha bags left?" },
+      { type: "invi", text: "14 bags in stock. Reorder in 4 days." },
     ],
   },
   {
@@ -41,11 +38,8 @@ const features: Feature[] = [
       "You can plan ahead without over-ordering or reacting too late.",
     ],
     conversation: [
-      { type: "user", text: "What should we order for next week?" },
-      {
-        type: "invi",
-        text: "Based on last month's sales and current trends, I recommend increasing your order by 18%. This should cover projected demand without excess stock.",
-      },
+      { type: "user", text: "What to order for next week?" },
+      { type: "invi", text: "Increase order by 18% based on trends." },
     ],
   },
   {
@@ -57,12 +51,9 @@ const features: Feature[] = [
       "You stay ahead of shortages without constantly checking numbers.",
     ],
     conversation: [
-      { type: "system", text: "Low stock detected: Oat milk" },
+      { type: "system", text: "Low stock: Oat milk" },
       { type: "user", text: "Place a reorder." },
-      {
-        type: "invi",
-        text: "I've prepared a reorder for 12 units based on average weekly usage. Let me know if you'd like to adjust it.",
-      },
+      { type: "invi", text: "Reorder prepared: 12 units. Adjust?" },
     ],
   },
   {
@@ -74,11 +65,8 @@ const features: Feature[] = [
       "You always know which numbers to trust.",
     ],
     conversation: [
-      { type: "user", text: "Why is inventory lower at the Ballard location?" },
-      {
-        type: "invi",
-        text: "Ballard is selling 22% faster than other locations this week. Inventory levels have been adjusted accordingly.",
-      },
+      { type: "user", text: "Why is Ballard stock low?" },
+      { type: "invi", text: "Selling 22% faster there this week." },
     ],
   },
   {
@@ -90,11 +78,8 @@ const features: Feature[] = [
       "You get clarity without adding operational overhead.",
     ],
     conversation: [
-      { type: "user", text: "Do I need to set anything up to start?" },
-      {
-        type: "invi",
-        text: "No additional setup is required. Once your data is connected, I'll start tracking inventory automatically.",
-      },
+      { type: "user", text: "Any setup needed?" },
+      { type: "invi", text: "No setup. Tracking starts automatically." },
     ],
   },
 ];
@@ -210,25 +195,8 @@ const MobileTabContent = ({ feature }: { feature: Feature }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h3 className="text-[19px] font-bold text-foreground mb-4 leading-tight">{feature.title}</h3>
-
-      {feature.body.map((paragraph, index) => (
-        <p key={index} className="text-[15px] leading-[1.7] text-muted-foreground mb-3.5">
-          {paragraph}
-        </p>
-      ))}
-
-      {/* Highlight box */}
-      <div
-        className="mt-4 p-3.5 rounded-[10px] border-l-[3px] border-primary"
-        style={{
-          background: "linear-gradient(135deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.02) 100%)",
-        }}
-      >
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          <span className="text-primary font-semibold">Try it:</span> "{feature.conversation[0]?.text}"
-        </p>
-      </div>
+      <h3 className="text-[17px] font-bold text-foreground mb-3 leading-tight">{feature.title}</h3>
+      <p className="text-[14px] leading-[1.6] text-muted-foreground">{feature.body[0]}</p>
     </motion.div>
   );
 };
