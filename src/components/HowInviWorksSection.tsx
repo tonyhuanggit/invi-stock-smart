@@ -157,11 +157,12 @@ const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[
   );
 };
 
-// Horizontal scrollable tabs for mobile - Compact version
+// Horizontal scrollable tabs for mobile
 const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSelect: (index: number) => void }) => {
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Scroll active tab into view
     if (tabsRef.current) {
       const activeTab = tabsRef.current.children[activeIndex] as HTMLElement;
       if (activeTab) {
@@ -171,10 +172,10 @@ const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSele
   }, [activeIndex]);
 
   return (
-    <div className="mb-3 relative">
+    <div className="mb-5 relative">
       <div
         ref={tabsRef}
-        className="flex gap-1.5 overflow-x-auto pb-1.5 scrollbar-hide"
+        className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"
         style={{
           WebkitOverflowScrolling: "touch",
           scrollbarWidth: "none",
@@ -185,11 +186,11 @@ const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSele
           <button
             key={feature.id}
             onClick={() => onSelect(index)}
-            className={`flex-shrink-0 px-3 py-1.5 rounded-full text-[11px] font-semibold whitespace-nowrap transition-all duration-300 ${
-              activeIndex === index ? "bg-primary text-primary-foreground shadow-sm" : "bg-muted text-muted-foreground"
+            className={`flex-shrink-0 px-[18px] py-[10px] rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
+              activeIndex === index ? "bg-primary text-primary-foreground shadow-md" : "bg-muted text-muted-foreground"
             }`}
             style={{
-              boxShadow: activeIndex === index ? "0 2px 8px rgba(139, 125, 216, 0.25)" : "none",
+              boxShadow: activeIndex === index ? "0 4px 12px rgba(139, 125, 216, 0.3)" : "none",
             }}
           >
             {feature.shortTitle}
@@ -200,31 +201,31 @@ const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSele
   );
 };
 
-// Mobile tab content card - Compact version
+// Mobile tab content card
 const MobileTabContent = ({ feature }: { feature: Feature }) => {
   return (
     <motion.div
       key={feature.id}
-      initial={{ opacity: 0, y: 5 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.4 }}
     >
-      <h3 className="text-[13px] font-bold text-foreground mb-2 leading-tight">{feature.title}</h3>
+      <h3 className="text-[19px] font-bold text-foreground mb-4 leading-tight">{feature.title}</h3>
 
       {feature.body.map((paragraph, index) => (
-        <p key={index} className="text-[11px] leading-[1.6] text-muted-foreground mb-2">
+        <p key={index} className="text-[15px] leading-[1.7] text-muted-foreground mb-3.5">
           {paragraph}
         </p>
       ))}
 
       {/* Highlight box */}
       <div
-        className="mt-2.5 p-2 rounded-lg border-l-2 border-primary"
+        className="mt-4 p-3.5 rounded-[10px] border-l-[3px] border-primary"
         style={{
           background: "linear-gradient(135deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.02) 100%)",
         }}
       >
-        <p className="text-[10px] text-muted-foreground leading-relaxed">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           <span className="text-primary font-semibold">Try it:</span> "{feature.conversation[0]?.text}"
         </p>
       </div>
@@ -386,8 +387,8 @@ export const HowInviWorksSection = () => {
             {/* Phone at top */}
             <MobilePhoneFrame conversation={features[activeFeature].conversation} />
 
-            {/* Tabs container - Compact */}
-            <div className="bg-card rounded-xl p-2.5 pt-3 shadow-md">
+            {/* Tabs container */}
+            <div className="bg-card rounded-[20px] p-4 pt-5 shadow-lg">
               <HorizontalTabs activeIndex={activeFeature} onSelect={setActiveFeature} />
 
               {/* Tab content */}

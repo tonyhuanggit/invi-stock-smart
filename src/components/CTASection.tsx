@@ -20,7 +20,7 @@ export const CTASection = () => {
       setEmail("");
     }
   };
-  return <section id="contact" className="py-16 md:py-20 relative overflow-hidden">
+  return <section id="contact" className="py-20 relative overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 gradient-primary opacity-5" />
       
@@ -34,20 +34,20 @@ export const CTASection = () => {
       }} viewport={{
         once: true
       }} className="max-w-4xl mx-auto text-center">
-          <div className="glass rounded-2xl md:rounded-3xl p-8 md:p-12 shadow-large border-2 border-primary/20">
-            <h2 className="text-[24px] md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+          <div className="glass rounded-3xl p-12 shadow-large border-2 border-primary/20">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Stop Guessing. <span className="text-gradient text-slate-950">Start Knowing.</span>
             </h2>
 
-            <p className="text-[13px] md:text-lg text-muted-foreground mb-5 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Join hundreds of businesses running smarter inventory with AI-powered insights and automation.
             </p>
 
             {/* Benefits */}
-            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 mb-5 md:mb-8">
-              {benefits.map(benefit => <div key={benefit} className="flex items-center gap-1.5 md:gap-2">
-                  <Check className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
-                  <span className="text-[11px] md:text-sm text-foreground">{benefit}</span>
+            <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+              {benefits.map(benefit => <div key={benefit} className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">{benefit}</span>
                 </div>)}
             </div>
 
@@ -67,11 +67,11 @@ export const CTASection = () => {
             </form>
 
             {/* Trust Badges */}
-            <div className="mt-5 md:mt-8 pt-5 md:pt-8 border-t border-border">
-              <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
-                <div className="text-[11px] md:text-sm text-muted-foreground">🔒 Bank-level Security</div>
-                <div className="text-[11px] md:text-sm text-muted-foreground">⚡ 99.9% Uptime</div>
-                <div className="text-[11px] md:text-sm text-muted-foreground">💬 24/7 Support</div>
+            <div className="mt-8 pt-8 border-t border-border">
+              <div className="flex flex-wrap justify-center gap-8 items-center">
+                <div className="text-sm text-muted-foreground">🔒 Bank-level Security</div>
+                <div className="text-sm text-muted-foreground">⚡ 99.9% Uptime</div>
+                <div className="text-sm text-muted-foreground">💬 24/7 Support</div>
               </div>
             </div>
           </div>

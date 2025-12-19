@@ -36,11 +36,11 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1.5 md:gap-2 group">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg gradient-primary flex items-center justify-center shadow-md group-hover:shadow-glow transition-all duration-300">
-              <span className="text-white font-bold text-base md:text-xl">I</span>
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center shadow-md group-hover:shadow-glow transition-all duration-300">
+              <span className="text-white font-bold text-xl">I</span>
             </div>
-            <span className="text-[20px] md:text-2xl font-bold" style={{ color: '#1a1a1a' }}>Invi</span>
+            <span className="text-2xl font-bold" style={{ color: '#1a1a1a' }}>Invi</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -68,13 +68,13 @@ export const Navigation = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-4 md:gap-6 mt-8">
+              <div className="flex flex-col gap-6 mt-8">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.href}
                     onClick={handleLinkClick}
-                    className="text-[14px] md:text-lg font-medium hover:text-primary transition-colors"
+                    className="text-lg font-medium hover:text-primary transition-colors"
                     style={{ color: '#2d2d2d' }}
                   >
                     {link.name}
