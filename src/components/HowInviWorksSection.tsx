@@ -99,50 +99,50 @@ const features: Feature[] = [
   },
 ];
 
-// Mobile Phone with notch style
+// Mobile Phone with notch style - Compact version
 const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) => {
   return (
-    <div className="flex justify-center mb-8">
+    <div className="flex justify-center mb-4">
       <div
-        className="relative bg-white rounded-[40px] border-[10px] border-[#1a1a1a] p-4"
+        className="relative bg-white rounded-[28px] border-[6px] border-[#1a1a1a] p-2"
         style={{
-          width: "260px",
-          height: "520px",
-          boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+          width: "180px",
+          height: "300px",
+          boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
         }}
       >
         {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[24px] bg-[#1a1a1a] rounded-b-2xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60px] h-[16px] bg-[#1a1a1a] rounded-b-xl" />
 
         {/* Phone header */}
-        <div className="text-center pt-8 pb-4">
-          <span className="text-[15px] font-semibold text-foreground">Invi</span>
+        <div className="text-center pt-5 pb-2">
+          <span className="text-[11px] font-semibold text-foreground">Invi</span>
         </div>
 
         {/* Chat messages */}
-        <div className="space-y-3">
+        <div className="space-y-1.5">
           <AnimatePresence mode="wait">
             {conversation.map((message, index) => (
               <motion.div
                 key={`${message.text}-${index}`}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, delay: index * 0.1 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.15, delay: index * 0.08 }}
                 className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
               >
                 {message.type === "system" ? (
                   <div className="w-full text-center">
-                    <span className="inline-block rounded-full bg-muted px-2.5 py-1 text-[10px] text-muted-foreground">
+                    <span className="inline-block rounded-full bg-muted px-2 py-0.5 text-[8px] text-muted-foreground">
                       {message.text}
                     </span>
                   </div>
                 ) : (
                   <div
-                    className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed ${
+                    className={`max-w-[90%] px-2.5 py-1.5 text-[11px] leading-snug ${
                       message.type === "user"
-                        ? "bg-primary text-primary-foreground rounded-2xl rounded-br-sm"
-                        : "bg-muted text-foreground rounded-2xl rounded-bl-sm"
+                        ? "bg-primary text-primary-foreground rounded-xl rounded-br-sm"
+                        : "bg-muted text-foreground rounded-xl rounded-bl-sm"
                     }`}
                   >
                     {message.text}
