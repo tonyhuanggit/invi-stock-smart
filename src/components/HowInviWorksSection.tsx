@@ -22,12 +22,15 @@ const features: Feature[] = [
     shortTitle: "Real-time",
     body: [
       "Invi gives you a live view of your inventory as it actually exists, not what a spreadsheet says it should be. Stock levels update automatically as products move, so you always know what's on hand and what's running low.",
-      "You spend less time double-checking counts and more time making decisions with confidence."
+      "You spend less time double-checking counts and more time making decisions with confidence.",
     ],
     conversation: [
       { type: "user", text: "How many matcha bags do we have left?" },
-      { type: "invi", text: "You currently have 14 bags in stock across all locations. Based on recent sales, you'll need to reorder within 4 days." }
-    ]
+      {
+        type: "invi",
+        text: "You currently have 14 bags in stock across all locations. Based on recent sales, you'll need to reorder within 4 days.",
+      },
+    ],
   },
   {
     id: 2,
@@ -35,12 +38,15 @@ const features: Feature[] = [
     shortTitle: "Forecasting",
     body: [
       "Invi analyzes historical sales and current velocity to help you anticipate demand before it becomes a problem. Forecasts are grounded in your data, not generic assumptions.",
-      "You can plan ahead without over-ordering or reacting too late."
+      "You can plan ahead without over-ordering or reacting too late.",
     ],
     conversation: [
       { type: "user", text: "What should we order for next week?" },
-      { type: "invi", text: "Based on last month's sales and current trends, I recommend increasing your order by 18%. This should cover projected demand without excess stock." }
-    ]
+      {
+        type: "invi",
+        text: "Based on last month's sales and current trends, I recommend increasing your order by 18%. This should cover projected demand without excess stock.",
+      },
+    ],
   },
   {
     id: 3,
@@ -48,13 +54,16 @@ const features: Feature[] = [
     shortTitle: "Alerts",
     body: [
       "When inventory drops below healthy levels, Invi flags it immediately and recommends what to reorder. No manual monitoring. No last-minute scrambles.",
-      "You stay ahead of shortages without constantly checking numbers."
+      "You stay ahead of shortages without constantly checking numbers.",
     ],
     conversation: [
       { type: "system", text: "Low stock detected: Oat milk" },
       { type: "user", text: "Place a reorder." },
-      { type: "invi", text: "I've prepared a reorder for 12 units based on average weekly usage. Let me know if you'd like to adjust it." }
-    ]
+      {
+        type: "invi",
+        text: "I've prepared a reorder for 12 units based on average weekly usage. Let me know if you'd like to adjust it.",
+      },
+    ],
   },
   {
     id: 4,
@@ -62,12 +71,15 @@ const features: Feature[] = [
     shortTitle: "Unified Data",
     body: [
       "Whether you sell in-store, online, or across multiple locations, Invi centralizes your inventory in one place. Everything stays in sync so counts don't drift and decisions don't rely on guesswork.",
-      "You always know which numbers to trust."
+      "You always know which numbers to trust.",
     ],
     conversation: [
       { type: "user", text: "Why is inventory lower at the Ballard location?" },
-      { type: "invi", text: "Ballard is selling 22% faster than other locations this week. Inventory levels have been adjusted accordingly." }
-    ]
+      {
+        type: "invi",
+        text: "Ballard is selling 22% faster than other locations this week. Inventory levels have been adjusted accordingly.",
+      },
+    ],
   },
   {
     id: 5,
@@ -75,35 +87,38 @@ const features: Feature[] = [
     shortTitle: "Small Teams",
     body: [
       "Invi is designed for teams that don't have time to manage complex systems. Setup is simple, workflows are intuitive, and value shows up immediately.",
-      "You get clarity without adding operational overhead."
+      "You get clarity without adding operational overhead.",
     ],
     conversation: [
       { type: "user", text: "Do I need to set anything up to start?" },
-      { type: "invi", text: "No additional setup is required. Once your data is connected, I'll start tracking inventory automatically." }
-    ]
-  }
+      {
+        type: "invi",
+        text: "No additional setup is required. Once your data is connected, I'll start tracking inventory automatically.",
+      },
+    ],
+  },
 ];
 
 // Mobile Phone with notch style
 const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) => {
   return (
     <div className="flex justify-center mb-8">
-      <div 
+      <div
         className="relative bg-white rounded-[40px] border-[10px] border-[#1a1a1a] p-4"
-        style={{ 
-          width: '260px',
-          height: '520px',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.2)'
+        style={{
+          width: "200px",
+          height: "450px",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
         }}
       >
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[24px] bg-[#1a1a1a] rounded-b-2xl" />
-        
+
         {/* Phone header */}
         <div className="text-center pt-8 pb-4">
           <span className="text-[15px] font-semibold text-foreground">Invi</span>
         </div>
-        
+
         {/* Chat messages */}
         <div className="space-y-3">
           <AnimatePresence mode="wait">
@@ -143,13 +158,7 @@ const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[
 };
 
 // Horizontal scrollable tabs for mobile
-const HorizontalTabs = ({ 
-  activeIndex, 
-  onSelect 
-}: { 
-  activeIndex: number; 
-  onSelect: (index: number) => void;
-}) => {
+const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSelect: (index: number) => void }) => {
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -157,20 +166,20 @@ const HorizontalTabs = ({
     if (tabsRef.current) {
       const activeTab = tabsRef.current.children[activeIndex] as HTMLElement;
       if (activeTab) {
-        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
       }
     }
   }, [activeIndex]);
 
   return (
     <div className="mb-5 relative">
-      <div 
+      <div
         ref={tabsRef}
         className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"
-        style={{ 
-          WebkitOverflowScrolling: 'touch',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none'
+        style={{
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
       >
         {features.map((feature, index) => (
@@ -178,12 +187,10 @@ const HorizontalTabs = ({
             key={feature.id}
             onClick={() => onSelect(index)}
             className={`flex-shrink-0 px-[18px] py-[10px] rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
-              activeIndex === index
-                ? "bg-primary text-primary-foreground shadow-md"
-                : "bg-muted text-muted-foreground"
+              activeIndex === index ? "bg-primary text-primary-foreground shadow-md" : "bg-muted text-muted-foreground"
             }`}
             style={{
-              boxShadow: activeIndex === index ? '0 4px 12px rgba(139, 125, 216, 0.3)' : 'none'
+              boxShadow: activeIndex === index ? "0 4px 12px rgba(139, 125, 216, 0.3)" : "none",
             }}
           >
             {feature.shortTitle}
@@ -203,20 +210,20 @@ const MobileTabContent = ({ feature }: { feature: Feature }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h3 className="text-[19px] font-bold text-foreground mb-4 leading-tight">
-        {feature.title}
-      </h3>
-      
+      <h3 className="text-[19px] font-bold text-foreground mb-4 leading-tight">{feature.title}</h3>
+
       {feature.body.map((paragraph, index) => (
         <p key={index} className="text-[15px] leading-[1.7] text-muted-foreground mb-3.5">
           {paragraph}
         </p>
       ))}
-      
+
       {/* Highlight box */}
-      <div 
+      <div
         className="mt-4 p-3.5 rounded-[10px] border-l-[3px] border-primary"
-        style={{ background: 'linear-gradient(135deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.02) 100%)' }}
+        style={{
+          background: "linear-gradient(135deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.02) 100%)",
+        }}
       >
         <p className="text-sm text-muted-foreground leading-relaxed">
           <span className="text-primary font-semibold">Try it:</span> "{feature.conversation[0]?.text}"
@@ -230,23 +237,23 @@ const MobileTabContent = ({ feature }: { feature: Feature }) => {
 const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) => {
   return (
     <div className="relative mx-auto w-full max-w-[280px]">
-      <div 
+      <div
         className="relative rounded-[44px] border-[3px] border-[#2a2a2a] bg-white p-3"
-        style={{ 
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-          aspectRatio: '9 / 17.5'
+        style={{
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)",
+          aspectRatio: "9 / 17.5",
         }}
       >
         {/* Dynamic Island */}
         <div className="absolute left-1/2 top-3 h-[26px] w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
-        
+
         {/* Screen content */}
         <div className="flex h-full flex-col pt-12">
           {/* Header */}
           <div className="mb-4 text-center">
             <p className="text-sm font-medium text-muted-foreground">Invi</p>
           </div>
-          
+
           {/* Messages */}
           <div className="flex-1 space-y-3 overflow-y-auto px-2">
             <AnimatePresence mode="wait">
@@ -280,7 +287,7 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
               ))}
             </AnimatePresence>
           </div>
-          
+
           {/* Home indicator */}
           <div className="mx-auto mb-2 mt-4 h-1 w-28 rounded-full bg-[#d1d1d6]" />
         </div>
@@ -290,34 +297,24 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
 };
 
 // Desktop Feature Panel
-const FeaturePanel = ({
-  feature,
-  isActive,
-  onClick,
-}: {
-  feature: Feature;
-  isActive: boolean;
-  onClick: () => void;
-}) => {
+const FeaturePanel = ({ feature, isActive, onClick }: { feature: Feature; isActive: boolean; onClick: () => void }) => {
   return (
     <div
       className="cursor-pointer rounded-lg py-5 px-4 transition-all duration-300 ease-out"
       style={{
-        background: isActive 
-          ? 'linear-gradient(135deg, #f8f6ff 0%, #fdfcff 100%)' 
-          : 'transparent',
+        background: isActive ? "linear-gradient(135deg, #f8f6ff 0%, #fdfcff 100%)" : "transparent",
       }}
       onClick={onClick}
       onMouseEnter={(e) => {
         if (!isActive) {
-          e.currentTarget.style.background = '#fafafa';
-          e.currentTarget.style.transform = 'translateX(4px)';
+          e.currentTarget.style.background = "#fafafa";
+          e.currentTarget.style.transform = "translateX(4px)";
         }
       }}
       onMouseLeave={(e) => {
         if (!isActive) {
-          e.currentTarget.style.background = 'transparent';
-          e.currentTarget.style.transform = 'translateX(0)';
+          e.currentTarget.style.background = "transparent";
+          e.currentTarget.style.transform = "translateX(0)";
         }
       }}
     >
@@ -326,21 +323,21 @@ const FeaturePanel = ({
         <div
           className="flex-shrink-0 rounded-full transition-all duration-300 ease-out"
           style={{
-            width: isActive ? '12px' : '8px',
-            height: isActive ? '12px' : '8px',
-            backgroundColor: isActive ? '#8B7DD8' : 'white',
-            border: isActive ? 'none' : '2px solid #d0d0d0',
-            boxShadow: isActive ? '0 0 0 4px rgba(139, 125, 216, 0.15)' : 'none',
+            width: isActive ? "12px" : "8px",
+            height: isActive ? "12px" : "8px",
+            backgroundColor: isActive ? "#8B7DD8" : "white",
+            border: isActive ? "none" : "2px solid #d0d0d0",
+            boxShadow: isActive ? "0 0 0 4px rgba(139, 125, 216, 0.15)" : "none",
           }}
         />
-        <h3 
+        <h3
           className="text-lg font-semibold transition-colors duration-300 ease-out"
-          style={{ color: isActive ? '#8B7DD8' : 'inherit' }}
+          style={{ color: isActive ? "#8B7DD8" : "inherit" }}
         >
           {feature.title}
         </h3>
       </div>
-      
+
       <AnimatePresence>
         {isActive && (
           <motion.div
@@ -378,9 +375,7 @@ export const HowInviWorksSection = () => {
           viewport={{ once: true }}
           className="mb-8 md:mb-16 text-center"
         >
-          <h2 className="mb-3 md:mb-4 text-2xl md:text-3xl font-bold lg:text-4xl">
-            How Invi Works in Practice
-          </h2>
+          <h2 className="mb-3 md:mb-4 text-2xl md:text-3xl font-bold lg:text-4xl">How Invi Works in Practice</h2>
           <p className="mx-auto max-w-2xl text-[15px] md:text-lg text-muted-foreground">
             See how Invi transforms inventory management through simple conversation.
           </p>
@@ -388,21 +383,14 @@ export const HowInviWorksSection = () => {
 
         {/* Mobile layout: Phone → Tabs → Content */}
         {isMobile ? (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             {/* Phone at top */}
             <MobilePhoneFrame conversation={features[activeFeature].conversation} />
-            
+
             {/* Tabs container */}
             <div className="bg-card rounded-[20px] p-4 pt-5 shadow-lg">
-              <HorizontalTabs 
-                activeIndex={activeFeature} 
-                onSelect={setActiveFeature} 
-              />
-              
+              <HorizontalTabs activeIndex={activeFeature} onSelect={setActiveFeature} />
+
               {/* Tab content */}
               <AnimatePresence mode="wait">
                 <MobileTabContent feature={features[activeFeature]} />
@@ -423,11 +411,7 @@ export const HowInviWorksSection = () => {
             </motion.div>
 
             {/* Right column: Feature panels */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               {features.map((feature, index) => (
                 <FeaturePanel
                   key={feature.id}
