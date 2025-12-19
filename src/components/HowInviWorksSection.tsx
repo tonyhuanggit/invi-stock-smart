@@ -89,19 +89,19 @@ const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[
   return (
     <div className="flex justify-center mb-4">
       <div
-        className="relative bg-white rounded-[28px] border-[6px] border-[#1a1a1a] p-2"
+        className="relative bg-white rounded-[25px] border-[5px] border-[#1a1a1a] p-1.5"
         style={{
-          width: "180px",
+          width: "162px",
           height: "300px",
-          boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+          boxShadow: "0 10px 36px rgba(0,0,0,0.15)",
         }}
       >
         {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60px] h-[16px] bg-[#1a1a1a] rounded-b-xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[54px] h-[14px] bg-[#1a1a1a] rounded-b-lg" />
 
         {/* Phone header */}
-        <div className="text-center pt-5 pb-2">
-          <span className="text-[11px] font-semibold text-foreground">Invi</span>
+        <div className="text-center pt-4 pb-1.5">
+          <span className="text-[10px] font-semibold text-foreground">Invi</span>
         </div>
 
         {/* Chat messages */}
@@ -157,10 +157,10 @@ const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSele
   }, [activeIndex]);
 
   return (
-    <div className="mb-5 relative">
+    <div className="mb-4 relative">
       <div
         ref={tabsRef}
-        className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"
+        className="flex gap-1.5 overflow-x-auto pb-1.5 scrollbar-hide"
         style={{
           WebkitOverflowScrolling: "touch",
           scrollbarWidth: "none",
@@ -171,11 +171,11 @@ const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSele
           <button
             key={feature.id}
             onClick={() => onSelect(index)}
-            className={`flex-shrink-0 px-[18px] py-[10px] rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
+            className={`flex-shrink-0 px-[16px] py-[9px] rounded-full text-[13px] font-semibold whitespace-nowrap transition-all duration-300 ${
               activeIndex === index ? "bg-primary text-primary-foreground shadow-md" : "bg-muted text-muted-foreground"
             }`}
             style={{
-              boxShadow: activeIndex === index ? "0 4px 12px rgba(139, 125, 216, 0.3)" : "none",
+              boxShadow: activeIndex === index ? "0 3px 10px rgba(139, 125, 216, 0.3)" : "none",
             }}
           >
             {feature.shortTitle}
@@ -195,8 +195,8 @@ const MobileTabContent = ({ feature }: { feature: Feature }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h3 className="text-[17px] font-bold text-foreground mb-3 leading-tight">{feature.title}</h3>
-      <p className="text-[14px] leading-[1.6] text-muted-foreground">{feature.body[0]}</p>
+      <h3 className="text-[15px] font-bold text-foreground mb-2 leading-tight">{feature.title}</h3>
+      <p className="text-[13px] leading-[1.5] text-muted-foreground">{feature.body[0]}</p>
     </motion.div>
   );
 };

@@ -65,7 +65,7 @@ export const TestimonialsSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -73,31 +73,31 @@ export const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-card p-6 rounded-2xl shadow-soft border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-medium"
+              className="bg-card p-5 rounded-xl shadow-soft border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-medium"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-0.5 mb-3">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="text-foreground mb-6 leading-relaxed">
+              <p className="text-sm text-foreground mb-5 leading-relaxed">
                 "{testimonial.quote}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center text-white font-bold shadow-md">
+              <div className="flex items-center gap-2.5">
+                <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-white text-sm font-bold shadow-md">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <div className="font-semibold">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm font-semibold">{testimonial.name}</div>
+                  <div className="text-xs text-muted-foreground">
                     {testimonial.business}
                   </div>
-                  <div className="text-xs text-primary">{testimonial.type}</div>
+                  <div className="text-[10px] text-primary">{testimonial.type}</div>
                 </div>
               </div>
             </motion.div>
