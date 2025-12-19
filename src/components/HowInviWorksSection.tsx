@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Feature {
   id: number;
   title: string;
+  shortTitle: string;
   body: string[];
   conversation: ConversationMessage[];
 }
@@ -18,6 +19,7 @@ const features: Feature[] = [
   {
     id: 1,
     title: "Real-time inventory, always accurate",
+    shortTitle: "Real-time",
     body: [
       "Invi gives you a live view of your inventory as it actually exists, not what a spreadsheet says it should be. Stock levels update automatically as products move, so you always know what's on hand and what's running low.",
       "You spend less time double-checking counts and more time making decisions with confidence."
@@ -30,6 +32,7 @@ const features: Feature[] = [
   {
     id: 2,
     title: "Demand forecasting you can trust",
+    shortTitle: "Forecasting",
     body: [
       "Invi analyzes historical sales and current velocity to help you anticipate demand before it becomes a problem. Forecasts are grounded in your data, not generic assumptions.",
       "You can plan ahead without over-ordering or reacting too late."
@@ -42,6 +45,7 @@ const features: Feature[] = [
   {
     id: 3,
     title: "Automatic low-stock alerts and reorders",
+    shortTitle: "Alerts",
     body: [
       "When inventory drops below healthy levels, Invi flags it immediately and recommends what to reorder. No manual monitoring. No last-minute scrambles.",
       "You stay ahead of shortages without constantly checking numbers."
@@ -55,6 +59,7 @@ const features: Feature[] = [
   {
     id: 4,
     title: "One source of truth across channels",
+    shortTitle: "Unified Data",
     body: [
       "Whether you sell in-store, online, or across multiple locations, Invi centralizes your inventory in one place. Everything stays in sync so counts don't drift and decisions don't rely on guesswork.",
       "You always know which numbers to trust."
@@ -67,6 +72,7 @@ const features: Feature[] = [
   {
     id: 5,
     title: "Built for small teams, ready on day one",
+    shortTitle: "Small Teams",
     body: [
       "Invi is designed for teams that don't have time to manage complex systems. Setup is simple, workflows are intuitive, and value shows up immediately.",
       "You get clarity without adding operational overhead."
@@ -78,64 +84,171 @@ const features: Feature[] = [
   }
 ];
 
-// Inline conversation bubbles for mobile view
-const InlineConversation = ({ conversation }: { conversation: ConversationMessage[] }) => {
+// Mobile Phone with notch style
+const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) => {
   return (
-    <div className="mt-4 space-y-2 rounded-xl bg-muted/30 p-3">
-      {conversation.map((message, index) => (
-        <motion.div
-          key={`${message.text}-${index}`}
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: index * 0.1 }}
-          className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
-        >
-          {message.type === "system" ? (
-            <div className="w-full text-center">
-              <span className="inline-block rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
-                {message.text}
-              </span>
-            </div>
-          ) : (
-            <div
-              className={`max-w-[85%] rounded-xl px-3 py-2 text-sm leading-relaxed ${
-                message.type === "user"
-                  ? "rounded-br-sm bg-primary text-primary-foreground"
-                  : "rounded-bl-sm bg-white text-foreground shadow-sm"
-              }`}
-            >
-              {message.text}
-            </div>
-          )}
-        </motion.div>
-      ))}
+    <div className="flex justify-center mb-8">
+      <div 
+        className="relative bg-white rounded-[40px] border-[10px] border-[#1a1a1a] p-4"
+        style={{ 
+          width: '260px',
+          height: '520px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.2)'
+        }}
+      >
+        {/* Notch */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[24px] bg-[#1a1a1a] rounded-b-2xl" />
+        
+        {/* Phone header */}
+        <div className="text-center pt-8 pb-4">
+          <span className="text-[15px] font-semibold text-foreground">Invi</span>
+        </div>
+        
+        {/* Chat messages */}
+        <div className="space-y-3">
+          <AnimatePresence mode="wait">
+            {conversation.map((message, index) => (
+              <motion.div
+                key={`${message.text}-${index}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, delay: index * 0.1 }}
+                className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
+              >
+                {message.type === "system" ? (
+                  <div className="w-full text-center">
+                    <span className="inline-block rounded-full bg-muted px-2.5 py-1 text-[10px] text-muted-foreground">
+                      {message.text}
+                    </span>
+                  </div>
+                ) : (
+                  <div
+                    className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed ${
+                      message.type === "user"
+                        ? "bg-primary text-primary-foreground rounded-2xl rounded-br-sm"
+                        : "bg-muted text-foreground rounded-2xl rounded-bl-sm"
+                    }`}
+                  >
+                    {message.text}
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 };
 
+// Horizontal scrollable tabs for mobile
+const HorizontalTabs = ({ 
+  activeIndex, 
+  onSelect 
+}: { 
+  activeIndex: number; 
+  onSelect: (index: number) => void;
+}) => {
+  const tabsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Scroll active tab into view
+    if (tabsRef.current) {
+      const activeTab = tabsRef.current.children[activeIndex] as HTMLElement;
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [activeIndex]);
+
+  return (
+    <div className="mb-5 relative">
+      <div 
+        ref={tabsRef}
+        className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"
+        style={{ 
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}
+      >
+        {features.map((feature, index) => (
+          <button
+            key={feature.id}
+            onClick={() => onSelect(index)}
+            className={`flex-shrink-0 px-[18px] py-[10px] rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
+              activeIndex === index
+                ? "bg-primary text-primary-foreground shadow-md"
+                : "bg-muted text-muted-foreground"
+            }`}
+            style={{
+              boxShadow: activeIndex === index ? '0 4px 12px rgba(139, 125, 216, 0.3)' : 'none'
+            }}
+          >
+            {feature.shortTitle}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Mobile tab content card
+const MobileTabContent = ({ feature }: { feature: Feature }) => {
+  return (
+    <motion.div
+      key={feature.id}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
+      <h3 className="text-[19px] font-bold text-foreground mb-4 leading-tight">
+        {feature.title}
+      </h3>
+      
+      {feature.body.map((paragraph, index) => (
+        <p key={index} className="text-[15px] leading-[1.7] text-muted-foreground mb-3.5">
+          {paragraph}
+        </p>
+      ))}
+      
+      {/* Highlight box */}
+      <div 
+        className="mt-4 p-3.5 rounded-[10px] border-l-[3px] border-primary"
+        style={{ background: 'linear-gradient(135deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.02) 100%)' }}
+      >
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          <span className="text-primary font-semibold">Try it:</span> "{feature.conversation[0]?.text}"
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+// Desktop Phone Frame
 const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) => {
   return (
-    <div className="relative mx-auto w-full max-w-[240px] md:max-w-[280px]">
-      {/* Phone outline - iPhone 15 Pro ratio approx 19.5:9 */}
+    <div className="relative mx-auto w-full max-w-[280px]">
       <div 
-        className="relative rounded-[36px] md:rounded-[44px] border-[3px] border-[#2a2a2a] bg-white p-2.5 md:p-3"
+        className="relative rounded-[44px] border-[3px] border-[#2a2a2a] bg-white p-3"
         style={{ 
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)',
           aspectRatio: '9 / 17.5'
         }}
       >
         {/* Dynamic Island */}
-        <div className="absolute left-1/2 top-2.5 md:top-3 h-[22px] md:h-[26px] w-[75px] md:w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
+        <div className="absolute left-1/2 top-3 h-[26px] w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
         
         {/* Screen content */}
-        <div className="flex h-full flex-col pt-10 md:pt-12">
+        <div className="flex h-full flex-col pt-12">
           {/* Header */}
-          <div className="mb-3 md:mb-4 text-center">
-            <p className="text-xs md:text-sm font-medium text-muted-foreground">Invi</p>
+          <div className="mb-4 text-center">
+            <p className="text-sm font-medium text-muted-foreground">Invi</p>
           </div>
           
           {/* Messages */}
-          <div className="flex-1 space-y-2.5 md:space-y-3 overflow-y-auto px-1.5 md:px-2">
+          <div className="flex-1 space-y-3 overflow-y-auto px-2">
             <AnimatePresence mode="wait">
               {conversation.map((message, index) => (
                 <motion.div
@@ -148,13 +261,13 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
                 >
                   {message.type === "system" ? (
                     <div className="w-full text-center">
-                      <span className="inline-block rounded-full bg-muted px-2.5 py-1 text-[10px] md:text-xs text-muted-foreground">
+                      <span className="inline-block rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
                         {message.text}
                       </span>
                     </div>
                   ) : (
                     <div
-                      className={`max-w-[85%] rounded-2xl px-2.5 py-1.5 md:px-3 md:py-2 text-[11px] md:text-[13px] leading-relaxed ${
+                      className={`max-w-[85%] rounded-2xl px-3 py-2 text-[13px] leading-relaxed ${
                         message.type === "user"
                           ? "rounded-br-md bg-primary text-primary-foreground"
                           : "rounded-bl-md bg-muted text-foreground"
@@ -169,27 +282,26 @@ const PhoneFrame = ({ conversation }: { conversation: ConversationMessage[] }) =
           </div>
           
           {/* Home indicator */}
-          <div className="mx-auto mb-1.5 md:mb-2 mt-3 md:mt-4 h-1 w-20 md:w-28 rounded-full bg-[#d1d1d6]" />
+          <div className="mx-auto mb-2 mt-4 h-1 w-28 rounded-full bg-[#d1d1d6]" />
         </div>
       </div>
     </div>
   );
 };
 
+// Desktop Feature Panel
 const FeaturePanel = ({
   feature,
   isActive,
   onClick,
-  showInlineConversation = false
 }: {
   feature: Feature;
   isActive: boolean;
   onClick: () => void;
-  showInlineConversation?: boolean;
 }) => {
   return (
     <div
-      className="cursor-pointer rounded-lg py-4 md:py-5 px-3 md:px-4 transition-all duration-300 ease-out active:scale-[0.99] md:active:scale-100"
+      className="cursor-pointer rounded-lg py-5 px-4 transition-all duration-300 ease-out"
       style={{
         background: isActive 
           ? 'linear-gradient(135deg, #f8f6ff 0%, #fdfcff 100%)' 
@@ -197,19 +309,19 @@ const FeaturePanel = ({
       }}
       onClick={onClick}
       onMouseEnter={(e) => {
-        if (!isActive && window.innerWidth >= 768) {
+        if (!isActive) {
           e.currentTarget.style.background = '#fafafa';
           e.currentTarget.style.transform = 'translateX(4px)';
         }
       }}
       onMouseLeave={(e) => {
-        if (!isActive && window.innerWidth >= 768) {
+        if (!isActive) {
           e.currentTarget.style.background = 'transparent';
           e.currentTarget.style.transform = 'translateX(0)';
         }
       }}
     >
-      <div className="flex items-center gap-3 md:gap-4">
+      <div className="flex items-center gap-4">
         {/* Circular dot indicator */}
         <div
           className="flex-shrink-0 rounded-full transition-all duration-300 ease-out"
@@ -222,7 +334,7 @@ const FeaturePanel = ({
           }}
         />
         <h3 
-          className="text-base md:text-lg font-semibold transition-colors duration-300 ease-out"
+          className="text-lg font-semibold transition-colors duration-300 ease-out"
           style={{ color: isActive ? '#8B7DD8' : 'inherit' }}
         >
           {feature.title}
@@ -238,17 +350,12 @@ const FeaturePanel = ({
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="overflow-hidden"
           >
-            <div className="mt-3 md:mt-4 ml-[24px] md:ml-[30px] space-y-2 md:space-y-3">
+            <div className="mt-4 ml-[30px] space-y-3">
               {feature.body.map((paragraph, index) => (
-                <p key={index} className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p key={index} className="text-base text-muted-foreground leading-relaxed">
                   {paragraph}
                 </p>
               ))}
-              
-              {/* Inline conversation for mobile */}
-              {showInlineConversation && (
-                <InlineConversation conversation={feature.conversation} />
-              )}
             </div>
           </motion.div>
         )}
@@ -262,49 +369,55 @@ export const HowInviWorksSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
+    <section className="bg-background py-16 md:py-24 lg:py-32">
       <div className="container mx-auto max-w-6xl px-4">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 md:mb-16 text-center"
+          className="mb-8 md:mb-16 text-center"
         >
           <h2 className="mb-3 md:mb-4 text-2xl md:text-3xl font-bold lg:text-4xl">
             How Invi Works in Practice
           </h2>
-          <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-[15px] md:text-lg text-muted-foreground">
             See how Invi transforms inventory management through simple conversation.
           </p>
         </motion.div>
 
-        {/* Mobile layout: Features first, no phone (inline conversations) */}
+        {/* Mobile layout: Phone → Tabs → Content */}
         {isMobile ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            {features.map((feature, index) => (
-              <FeaturePanel
-                key={feature.id}
-                feature={feature}
-                isActive={activeFeature === index}
-                onClick={() => setActiveFeature(index)}
-                showInlineConversation={true}
+            {/* Phone at top */}
+            <MobilePhoneFrame conversation={features[activeFeature].conversation} />
+            
+            {/* Tabs container */}
+            <div className="bg-card rounded-[20px] p-4 pt-5 shadow-lg">
+              <HorizontalTabs 
+                activeIndex={activeFeature} 
+                onSelect={setActiveFeature} 
               />
-            ))}
+              
+              {/* Tab content */}
+              <AnimatePresence mode="wait">
+                <MobileTabContent feature={features[activeFeature]} />
+              </AnimatePresence>
+            </div>
           </motion.div>
         ) : (
           /* Desktop/Tablet layout: Two columns with sticky phone */
-          <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left column: Phone (sticky on tablet+) */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left column: Phone (sticky) */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex items-center justify-center md:sticky md:top-24 md:self-start order-1 lg:order-1"
+              className="flex items-center justify-center md:sticky md:top-24 md:self-start"
             >
               <PhoneFrame conversation={features[activeFeature].conversation} />
             </motion.div>
@@ -314,7 +427,6 @@ export const HowInviWorksSection = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="order-2 lg:order-2"
             >
               {features.map((feature, index) => (
                 <FeaturePanel
@@ -322,7 +434,6 @@ export const HowInviWorksSection = () => {
                   feature={feature}
                   isActive={activeFeature === index}
                   onClick={() => setActiveFeature(index)}
-                  showInlineConversation={false}
                 />
               ))}
             </motion.div>
