@@ -34,14 +34,14 @@ export const Hero = () => {
             scale: 1
           }} transition={{
             delay: 0.2
-          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+          }} className="inline-flex items-center gap-2 px-3.5 py-1.5 md:px-4 md:py-2 rounded-full glass mb-6">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-sm font-medium" style={{
+              <span className="text-[13px] md:text-sm font-medium" style={{
               color: '#2d2d2d'
             }}>Trusted by 500+ stores worldwide</span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-[34px] md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               <span className="text-black block pb-1">
                 Inventory management
               </span>
@@ -67,22 +67,22 @@ export const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0">
-              <div className="text-center lg:text-left glass p-4 rounded-xl">
-                <div className="text-3xl font-bold text-gradient">85%</div>
-                <div className="text-sm" style={{
+            <div className="grid grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-12 max-w-xl mx-auto lg:mx-0">
+              <div className="text-center lg:text-left glass p-3.5 md:p-4 rounded-xl">
+                <div className="text-[27px] md:text-3xl font-bold text-gradient">85%</div>
+                <div className="text-[13px] md:text-sm" style={{
                 color: '#2d2d2d'
               }}>Fewer Stockouts</div>
               </div>
-              <div className="text-center lg:text-left glass p-4 rounded-xl">
-                <div className="text-3xl font-bold text-gradient">20+</div>
-                <div className="text-sm" style={{
+              <div className="text-center lg:text-left glass p-3.5 md:p-4 rounded-xl">
+                <div className="text-[27px] md:text-3xl font-bold text-gradient">20+</div>
+                <div className="text-[13px] md:text-sm" style={{
                 color: '#2d2d2d'
               }}>Hours Saved/Week</div>
               </div>
-              <div className="text-center lg:text-left glass p-4 rounded-xl">
-                <div className="text-3xl font-bold text-gradient">99%</div>
-                <div className="text-sm" style={{
+              <div className="text-center lg:text-left glass p-3.5 md:p-4 rounded-xl">
+                <div className="text-[27px] md:text-3xl font-bold text-gradient">99%</div>
+                <div className="text-[13px] md:text-sm" style={{
                 color: '#2d2d2d'
               }}>Invoice Accuracy</div>
               </div>
