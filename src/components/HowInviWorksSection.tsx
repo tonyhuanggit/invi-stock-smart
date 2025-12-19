@@ -106,8 +106,8 @@ const MobilePhoneFrame = ({ conversation }: { conversation: ConversationMessage[
       <div
         className="relative bg-white rounded-[40px] border-[10px] border-[#1a1a1a] p-4"
         style={{
-          width: "200px",
-          height: "450px",
+          width: "260px",
+          height: "520px",
           boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
         }}
       >
