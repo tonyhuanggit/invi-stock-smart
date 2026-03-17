@@ -1,45 +1,44 @@
 import { motion } from "framer-motion";
-import { Eye, GitCompare, TrendingUp, Zap } from "lucide-react";
 
 const steps = [
   {
-    emoji: "👁️",
+    emoji: "📱",
     number: "1",
-    title: "Watch",
-    description: "Invi listens to your POS and sales data in real time, learning your store's patterns across days and seasons.",
+    title: "Text Your Counts",
+    description: "Open iMessage and text Invi your inventory counts — like 'Coffee Beans 4 Lb, Napkins 3 Pack'. Invi logs them to your Google Sheet automatically.",
   },
   {
-    emoji: "⚖️",
+    emoji: "📊",
     number: "2",
-    title: "Compare",
-    description: "It checks actual counts against expected stock, flags mismatches, and records waste or shrink automatically.",
+    title: "Ask What's Low",
+    description: "Text 'What's running low?' and Invi checks your current stock against the minimums you set. You get a clear answer in seconds.",
   },
   {
     emoji: "📈",
     number: "3",
-    title: "Forecast",
-    description: "Using sales trends and seasonality, Invi predicts what you'll need next week and drafts purchase orders before you notice a shortage.",
+    title: "Get Analysis",
+    description: "Ask about trends, burn rate, or usage patterns. Invi runs calculations on your data and tells you what to reorder and when you'll run out.",
   },
   {
-    emoji: "⚡",
+    emoji: "✅",
     number: "4",
-    title: "Act",
-    description: "It sends supplier messages, confirms deliveries, and learns from corrections so its predictions get sharper over time.",
+    title: "Take Action",
+    description: "Invi gives you reorder suggestions — you decide what to do. Place orders with your suppliers on your terms, with the data to back it up.",
   },
 ];
 
 const dataFlow = [
   {
     title: "Inputs",
-    content: "Sales logs, delivery notes, supplier emails, daily counts",
+    content: "Your text messages, daily counts, Google Sheet data",
   },
   {
     title: "AI Logic",
-    content: "Forecasting engine, anomaly detection, supplier rules",
+    content: "Stock vs. minimums, trend detection, usage calculations",
   },
   {
     title: "Outputs",
-    content: "Drafted POs, discrepancy alerts, performance dashboard",
+    content: "Low-stock alerts, reorder suggestions, usage analysis",
   },
 ];
 
@@ -67,7 +66,7 @@ export const HowItWorksSection = () => {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground"
           >
-            Every night, every order, every check — here's what happens behind the scenes.
+            Text your counts, ask questions, get answers — it's that simple.
           </motion.p>
         </div>
 
@@ -128,7 +127,7 @@ export const HowItWorksSection = () => {
           className="max-w-5xl mx-auto"
         >
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">From Data to Decision</h3>
+            <h3 className="text-2xl font-bold mb-2">From Text to Insight</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -160,7 +159,7 @@ export const HowItWorksSection = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Invi runs these cycles automatically — so your shelves stay stocked, your team stays focused, and nothing slips through the cracks.
+              Invi keeps your Google Sheet updated so you always have a clear picture of what's in stock, what's low, and what to order next.
             </p>
           </motion.div>
         </motion.div>

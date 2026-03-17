@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MessageSquare } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -40,7 +40,7 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have questions about Invi? We're here to help you optimize your inventory management.
+              Have questions about Invi? We're here to help.
             </p>
           </div>
 
@@ -116,35 +116,28 @@ const Contact = () => {
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-white" />
+                      <MessageSquare className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Office</h3>
-                      <p className="text-muted-foreground">
-                        123 Business St, Suite 100<br />
-                        San Francisco, CA 94105
-                      </p>
+                      <h3 className="font-semibold mb-1">Text the Demo</h3>
+                      <a href="sms:+13053369541" className="text-primary hover:underline">
+                        +1 (305) 336-9541
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="glass rounded-2xl p-8">
-                <h3 className="text-xl font-bold mb-4">Schedule a Demo</h3>
+                <h3 className="text-xl font-bold mb-4">Try Invi Right Now</h3>
                 <p className="text-muted-foreground mb-6">
-                  See Invi in action with a personalized demo tailored to your business needs.
+                  The fastest way to see what Invi can do is to text it. Open iMessage and send a message — Invi responds in seconds.
                 </p>
-                <Button variant="hero" size="lg" className="w-full">
-                  Book Demo Call
+                <Button variant="hero" size="lg" className="w-full" asChild>
+                  <a href="sms:+13053369541">
+                    <MessageSquare className="mr-2 h-5 w-5" />
+                    Text +1 (305) 336-9541
+                  </a>
                 </Button>
               </div>
             </div>

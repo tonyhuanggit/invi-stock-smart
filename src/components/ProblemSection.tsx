@@ -1,4 +1,4 @@
-import { AlertTriangle, Clock, DollarSign, FileX } from "lucide-react";
+import { AlertTriangle, Clock, DollarSign, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 
 const problems = [
@@ -18,9 +18,9 @@ const problems = [
     description: "Money tied up in excess inventory while struggling to pay other bills",
   },
   {
-    icon: FileX,
-    title: "Invoice Errors",
-    description: "Paying for products you never received or getting shorted on deliveries",
+    icon: EyeOff,
+    title: "No Visibility Into Usage",
+    description: "No idea how fast you're burning through products or when you'll actually run out",
   },
 ];
 
