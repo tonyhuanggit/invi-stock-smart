@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ChatBubble, ChatContainer } from "@/components/ui/chat-bubble";
 
 const benefits = [
-  "Works in Slack, Microsoft Teams, or SMS - wherever you already chat",
-  "Natural conversations - ask questions like you're texting a friend",
-  "Proactive alerts when stock runs low or deliveries arrive",
-  "One-word approvals - reply 'YES' to reorder, that's it",
-  "Learns your communication style and preferences",
-  "Instant answers to 'How much X do we have?' questions",
+  "Text your counts — Invi logs them to your Google Sheet automatically",
+  "Ask what's running low — get instant answers based on stock vs. minimums",
+  "Request analysis — usage trends, burn rate, reorder suggestions",
+  "Your data stays in your own Google Sheet — you own it, you control it",
+  "No app to download — works right in iMessage on your phone",
+  "Context-aware — Invi remembers what you said and follows up naturally",
 ];
 
 export const SolutionSection = () => {
@@ -28,13 +28,13 @@ export const SolutionSection = () => {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Chat Your Way to <span className="text-gradient">Perfect Inventory</span>
+              Text Your Way to <span className="text-gradient">Perfect Inventory</span>
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8">
-              Invi lives in your messaging apps - Slack, Teams, or SMS. Just chat naturally like you're 
-              texting a coworker. No dashboards, no training, no complexity. Just conversations that keep 
-              your shelves stocked.
+              Invi lives in iMessage. Just text naturally like you're messaging a coworker. 
+              Tell it your counts, ask what's low, get reorder suggestions — all logged to your 
+              Google Sheet automatically.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -53,9 +53,11 @@ export const SolutionSection = () => {
               ))}
             </div>
 
-            <Button variant="hero" size="lg">
-              <MessageSquare className="mr-2 h-5 w-5" />
-              Try a Demo Chat
+            <Button variant="hero" size="lg" asChild>
+              <a href="sms:+13053369541">
+                <MessageSquare className="mr-2 h-5 w-5" />
+                Text the Demo: (305) 336-9541
+              </a>
             </Button>
           </motion.div>
 
@@ -75,7 +77,7 @@ export const SolutionSection = () => {
                   <div className="font-semibold">Invi</div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    Online
+                    iMessage
                   </div>
                 </div>
                 <div className="ml-auto">
@@ -85,16 +87,20 @@ export const SolutionSection = () => {
 
               <ChatContainer>
                 <ChatBubble 
-                  message="Matcha running low - 8 bags left. Want me to reorder?" 
+                  message="Coffee Beans 4 Lb, Napkins 3 Pack, Bagels 12" 
+                  isUser={true}
+                />
+                <ChatBubble 
+                  message="Got it! Logged to your sheet. Coffee Beans and Napkins are below minimum — want a reorder list?" 
                   isUser={false}
-                  emoji="☀️"
+                  emoji="📋"
                 />
                 <ChatBubble 
                   message="Yes" 
                   isUser={true}
                 />
                 <ChatBubble 
-                  message="Done! Order placed. Delivery Thursday 🎯" 
+                  message="Coffee Beans: order 9 Lb. Napkins: order 15 Pack. Everything else looks good ✓" 
                   isUser={false}
                 />
               </ChatContainer>

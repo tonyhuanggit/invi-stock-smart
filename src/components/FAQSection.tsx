@@ -9,35 +9,35 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     question: "Do I need to install a separate app?",
-    answer: "Nope! Invi works directly in Slack, Microsoft Teams, or SMS - wherever you already chat with your team. No extra app to download, no new platform to learn. Just add Invi to your workspace and start chatting.",
+    answer: "Nope! Invi works through iMessage — the messaging app already on your iPhone. No download, no account creation, no new platform to learn. Just text the number and start chatting.",
   },
   {
-    question: "How does Invi learn our communication style?",
-    answer: "Invi uses natural language AI to understand how you naturally talk. Whether you're formal or casual, use emojis or not, prefer quick replies or detailed explanations - Invi adapts to your style within a few conversations. It gets smarter the more you chat.",
+    question: "How does Invi track my inventory?",
+    answer: "You text Invi your counts (like 'Coffee Beans 4 Lb, Napkins 3 Pack') and it logs them to a Google Sheet that you own. It compares your current stock to the minimums you set and tells you what's running low.",
   },
   {
     question: "Can my whole team use it?",
-    answer: "Yes! Everyone on your team can chat with Invi. Add it to a shared channel so the whole crew can ask questions, or message Invi directly for personal alerts. Permissions are role-based, so you control who can approve orders versus just checking stock levels.",
+    answer: "Right now Invi is designed for the owner or manager — one person texting to manage inventory. Team-wide access is something we're exploring for future versions.",
   },
   {
-    question: "What if I prefer texting over Slack?",
-    answer: "Totally fine! Invi works via SMS too. Get alerts on your phone and reply with simple commands like 'YES' or 'ORDER MORE'. Perfect for owners who aren't always on their computer. You can even switch between SMS and Slack depending on where you are.",
+    question: "What happens to my data?",
+    answer: "Your data lives in your own Google Sheet. You own it, you control it. Invi reads and writes to that sheet, but you can access, edit, or export it anytime. Nothing is locked inside a proprietary system.",
   },
   {
     question: "How fast does Invi respond?",
-    answer: "Instantly. Ask a question, get an answer in seconds. Invi processes your messages in real-time and pulls live data from your POS. No waiting, no loading screens - just fast, conversational responses like texting a real person.",
+    answer: "In seconds. Ask a question, get an answer almost instantly. Invi processes your messages in real-time and pulls live data from your Google Sheet. No waiting, no loading screens.",
   },
   {
-    question: "Is my data secure in chat?",
-    answer: "Absolutely. All conversations are encrypted end-to-end, just like your banking app. Invi follows enterprise security standards (SOC 2 Type II certified) and integrates securely with Slack/Teams using official APIs. Your inventory data never leaves secure channels.",
+    question: "Is my data secure?",
+    answer: "Your inventory data lives in your own Google Sheet — you control who has access. Invi uses secure connections to read and write data, and we never share your information with third parties.",
   },
   {
-    question: "How does Invi integrate with my POS system?",
-    answer: "Invi connects seamlessly with all major POS systems including Square, Clover, Toast, and Shopify. Setup takes 5 minutes through our simple connection wizard - no technical knowledge required. We pull real-time sales data to keep inventory accurate.",
+    question: "How does Invi connect to my inventory?",
+    answer: "Invi uses a Google Sheet as the source of truth. You share a sheet with Invi, set your product names and minimum stock levels, and you're ready to go. No POS integration needed — just a spreadsheet.",
   },
   {
-    question: "Can I cancel anytime?",
-    answer: "Yes, cancel anytime with no penalties. You'll have 90 days to export your data if needed. We also offer a 14-day money-back guarantee - if Invi doesn't save you time in the first two weeks, we'll refund you fully.",
+    question: "Can I try it before committing?",
+    answer: "Yes! Text our demo number at +1 (305) 336-9541 to see Invi in action. It's a live demo — you can ask questions, log test counts, and see how it works before signing up for anything.",
   },
 ];
 
@@ -71,7 +71,7 @@ export const FAQSection = () => {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Got questions? We've got answers. Can't find what you're looking for? Contact our support team.
+            Got questions? We've got answers. Can't find what you're looking for? Text us at +1 (305) 336-9541.
           </motion.p>
         </div>
 

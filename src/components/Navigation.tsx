@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, MessageSquare } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 
@@ -55,8 +55,11 @@ export const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-            <Button variant="hero" size="lg">
-              Request Demo
+            <Button variant="hero" size="lg" asChild>
+              <a href="sms:+13053369541">
+                <MessageSquare className="mr-2 h-4 w-4" />
+                Text the Demo
+              </a>
             </Button>
           </div>
 
@@ -80,8 +83,11 @@ export const Navigation = () => {
                     {link.name}
                   </Link>
                 ))}
-                <Button variant="hero" size="lg" className="mt-4" onClick={handleLinkClick}>
-                  Request Demo
+                <Button variant="hero" size="lg" className="mt-4" asChild onClick={handleLinkClick}>
+                  <a href="sms:+13053369541">
+                    <MessageSquare className="mr-2 h-4 w-4" />
+                    Text the Demo
+                  </a>
                 </Button>
               </div>
             </SheetContent>

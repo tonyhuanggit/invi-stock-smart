@@ -18,68 +18,69 @@ interface ConversationMessage {
 const features: Feature[] = [
   {
     id: 1,
-    title: "Real-time inventory, always accurate",
-    shortTitle: "Real-time",
+    title: "Log counts by texting",
+    shortTitle: "Log Counts",
     body: [
-      "Invi gives you a live view of your inventory as it actually exists, not what a spreadsheet says it should be. Stock levels update automatically as products move, so you always know what's on hand and what's running low.",
-      "You spend less time double-checking counts and more time making decisions with confidence.",
+      "Just text Invi your inventory counts — like 'Coffee Beans 4 Lb, Napkins 3 Pack' — and it logs them to your Google Sheet automatically. No forms, no apps, no typing into cells.",
+      "You spend less time on data entry and more time running your business.",
     ],
     conversation: [
-      { type: "user", text: "How many matcha bags left?" },
-      { type: "invi", text: "14 bags in stock. Reorder in 4 days." },
+      { type: "user", text: "Coffee Beans 4 Lb, Napkins 3 Pack, Bagels 12" },
+      { type: "invi", text: "Got it! All logged to your sheet ✓" },
     ],
   },
   {
     id: 2,
-    title: "Demand forecasting you can trust",
-    shortTitle: "Forecasting",
+    title: "Ask what's running low",
+    shortTitle: "Stock Check",
     body: [
-      "Invi analyzes historical sales and current velocity to help you anticipate demand before it becomes a problem. Forecasts are grounded in your data, not generic assumptions.",
-      "You can plan ahead without over-ordering or reacting too late.",
+      "Text 'What's running low?' and Invi compares your current stock to the minimums you set. You get a clear, instant answer — no digging through spreadsheets.",
+      "Stay ahead of shortages without constantly checking numbers.",
     ],
     conversation: [
-      { type: "user", text: "What to order for next week?" },
-      { type: "invi", text: "Increase order by 18% based on trends." },
+      { type: "user", text: "What's running low?" },
+      { type: "invi", text: "Coffee Beans — 4 Lb, need 13. Napkins — 3 Pack, need 18. Everything else is good." },
     ],
   },
   {
     id: 3,
-    title: "Automatic low-stock alerts and reorders",
-    shortTitle: "Alerts",
+    title: "Get reorder suggestions",
+    shortTitle: "Reorder",
     body: [
-      "When inventory drops below healthy levels, Invi flags it immediately and recommends what to reorder. No manual monitoring. No last-minute scrambles.",
-      "You stay ahead of shortages without constantly checking numbers.",
+      "When stock drops below your minimums, Invi tells you exactly what to order and how much. You decide when and how to place the order — Invi just gives you the data.",
+      "No surprise shortages. No guesswork on quantities.",
     ],
     conversation: [
-      { type: "system", text: "Low stock: Oat milk" },
-      { type: "user", text: "Place a reorder." },
-      { type: "invi", text: "Reorder prepared: 12 units. Adjust?" },
+      { type: "system", text: "Low stock alert" },
+      { type: "invi", text: "Coffee Beans: order 9 Lb. Napkins: order 15 Pack. Want the full list?" },
+      { type: "user", text: "Yes" },
+      { type: "invi", text: "Here's your reorder list: Coffee Beans 9 Lb, Napkins 15 Pack. Everything else is above minimum ✓" },
     ],
   },
   {
     id: 4,
-    title: "One source of truth across channels",
-    shortTitle: "Unified Data",
+    title: "Track usage and trends",
+    shortTitle: "Trends",
     body: [
-      "Whether you sell in-store, online, or across multiple locations, Invi centralizes your inventory in one place. Everything stays in sync so counts don't drift and decisions don't rely on guesswork.",
-      "You always know which numbers to trust.",
+      "Ask Invi about burn rate, usage patterns, or how fast you're going through a product. It runs the calculations on your data and gives you plain-English answers.",
+      "Make smarter ordering decisions backed by real numbers.",
     ],
     conversation: [
-      { type: "user", text: "Why is Ballard stock low?" },
-      { type: "invi", text: "Selling 22% faster there this week." },
+      { type: "user", text: "How fast are we going through coffee?" },
+      { type: "invi", text: "~2.1 Lb/day over the last 7 days. At this rate, you'll run out in about 2 days." },
     ],
   },
   {
     id: 5,
     title: "Built for small teams, ready on day one",
-    shortTitle: "Small Teams",
+    shortTitle: "Easy Setup",
     body: [
-      "Invi is designed for teams that don't have time to manage complex systems. Setup is simple, workflows are intuitive, and value shows up immediately.",
+      "Invi works with a Google Sheet and iMessage — tools you already have. Share a sheet, text the number, and you're live. No POS integration, no training, no IT setup.",
       "You get clarity without adding operational overhead.",
     ],
     conversation: [
-      { type: "user", text: "Any setup needed?" },
-      { type: "invi", text: "No setup. Tracking starts automatically." },
+      { type: "user", text: "How do I get started?" },
+      { type: "invi", text: "Share your Google Sheet with me and set your minimums. That's it — you're ready to go!" },
     ],
   },
 ];
@@ -147,7 +148,6 @@ const HorizontalTabs = ({ activeIndex, onSelect }: { activeIndex: number; onSele
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Scroll active tab into view
     if (tabsRef.current) {
       const activeTab = tabsRef.current.children[activeIndex] as HTMLElement;
       if (activeTab) {
@@ -287,7 +287,6 @@ const FeaturePanel = ({ feature, isActive, onClick }: { feature: Feature; isActi
       }}
     >
       <div className="flex items-center gap-4">
-        {/* Circular dot indicator */}
         <div
           className="flex-shrink-0 rounded-full transition-all duration-300 ease-out"
           style={{
@@ -345,30 +344,23 @@ export const HowInviWorksSection = () => {
         >
           <h2 className="mb-3 md:mb-4 text-2xl md:text-3xl font-bold lg:text-4xl">How Invi Works in Practice</h2>
           <p className="mx-auto max-w-2xl text-[15px] md:text-lg text-muted-foreground">
-            See how Invi transforms inventory management through simple conversation.
+            See how Invi transforms inventory management through simple iMessage conversations.
           </p>
         </motion.div>
 
-        {/* Mobile layout: Phone → Tabs → Content */}
+        {/* Mobile layout */}
         {isMobile ? (
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            {/* Phone at top */}
             <MobilePhoneFrame conversation={features[activeFeature].conversation} />
-
-            {/* Tabs container */}
             <div className="bg-card rounded-[20px] p-4 pt-5 shadow-lg">
               <HorizontalTabs activeIndex={activeFeature} onSelect={setActiveFeature} />
-
-              {/* Tab content */}
               <AnimatePresence mode="wait">
                 <MobileTabContent feature={features[activeFeature]} />
               </AnimatePresence>
             </div>
           </motion.div>
         ) : (
-          /* Desktop/Tablet layout: Two columns with sticky phone */
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left column: Phone (sticky) */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -377,8 +369,6 @@ export const HowInviWorksSection = () => {
             >
               <PhoneFrame conversation={features[activeFeature].conversation} />
             </motion.div>
-
-            {/* Right column: Feature panels */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               {features.map((feature, index) => (
                 <FeaturePanel

@@ -38,7 +38,7 @@ export const Hero = () => {
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               <span className="text-sm font-medium" style={{
               color: '#2d2d2d'
-            }}>Trusted by 500+ stores worldwide</span>
+            }}>Built for small business owners</span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -55,36 +55,41 @@ export const Hero = () => {
 
             <div className="imessage-container mb-8 -mt-4">
               <div className="imessage-wrapper">
-                <p className="from-them">No dashboards. No spreadsheets.</p>
-                <p className="from-them tail">Just chat with your AI store manager through Slack, Teams, or SMS.</p>
+                <p className="from-them">Just text your AI inventory manager on iMessage.</p>
+                <p className="from-them tail">No app. No dashboard. Just your phone.</p>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              
-              
+              <Button variant="hero" size="lg" asChild>
+                <a href="sms:+13053369541">
+                  <MessageSquare className="mr-2 h-5 w-5" />
+                  Text the Demo
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0">
               <div className="text-center lg:text-left glass p-4 rounded-xl">
-                <div className="text-3xl font-bold text-gradient">85%</div>
+                <div className="text-3xl font-bold text-gradient">7</div>
                 <div className="text-sm" style={{
                 color: '#2d2d2d'
-              }}>Fewer Stockouts</div>
+              }}>SKUs Tracked Live</div>
               </div>
               <div className="text-center lg:text-left glass p-4 rounded-xl">
-                <div className="text-3xl font-bold text-gradient">20+</div>
+                <div className="text-3xl font-bold text-gradient">&lt;3s</div>
                 <div className="text-sm" style={{
                 color: '#2d2d2d'
-              }}>Hours Saved/Week</div>
+              }}>Response Time</div>
               </div>
               <div className="text-center lg:text-left glass p-4 rounded-xl">
-                <div className="text-3xl font-bold text-gradient">99%</div>
+                <div className="text-3xl font-bold text-gradient">iMessage</div>
                 <div className="text-sm" style={{
                 color: '#2d2d2d'
-              }}>Invoice Accuracy</div>
+              }}>Works Where You Are</div>
               </div>
             </div>
           </motion.div>
@@ -144,12 +149,11 @@ export const Hero = () => {
                   <MessageSquare className="w-6 h-6 text-primary" />
                   <span className="text-base font-semibold" style={{
                   color: '#1a1a1a'
-                }}>Simple Chat</span>
+                }}>iMessage</span>
                 </div>
                 <ChatContainer className="p-4">
-                  <ChatBubble message="Matcha powder running low! Want me to reorder?" isUser={false} timestamp="9:02 AM" />
-                  <ChatBubble message="Yes please" isUser={true} timestamp="9:05 AM" />
-                  <ChatBubble message="Done! Order placed with your usual supplier. Delivery Thursday ✓" isUser={false} timestamp="9:05 AM" />
+                  <ChatBubble message="What's running low?" isUser={true} timestamp="9:02 AM" />
+                  <ChatBubble message="Coffee Beans — 4 Lb, need 13. Napkins — 3 Pack, need 18. Everything else is good ✓" isUser={false} timestamp="9:02 AM" />
                 </ChatContainer>
               </div>
             </motion.div>

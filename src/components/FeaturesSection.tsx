@@ -1,36 +1,36 @@
-import { Activity, TrendingUp, ShoppingCart, CheckCircle, AlertTriangle, Globe } from "lucide-react";
+import { Activity, TrendingUp, ShoppingCart, CheckCircle, Smartphone, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
     icon: Activity,
     title: "💬 Text-First, Not Dashboard-First",
-    description: "Just open your messages and ask. No logging in, no navigation, no hunting for reports.",
+    description: "Just open iMessage and ask. No logging in, no navigation, no hunting for reports.",
   },
   {
     icon: TrendingUp,
-    title: "🔔 Proactive Alerts in Your Chat",
-    description: "Invi messages you when stock runs low, deliveries arrive, or trends spike. Stay informed without checking.",
+    title: "🔔 Proactive Alerts in Your Messages",
+    description: "Invi texts you when stock runs low or usage spikes. Stay informed without checking anything.",
   },
   {
     icon: ShoppingCart,
     title: "⚡ Instant Actions, No App Switching",
-    description: "Approve orders, answer questions, and manage inventory right from your chat. One-word replies work.",
+    description: "Log counts, get reorder suggestions, and check stock levels right from iMessage. One-word replies work.",
   },
   {
     icon: CheckCircle,
-    title: "🧠 Learns How You Communicate",
-    description: "Invi adapts to your language and preferences. The more you chat, the smarter it gets.",
+    title: "🧠 Understands Context",
+    description: "Invi knows what you mean when you say 'yes' or 'more' without re-explaining. Context carries across conversations.",
   },
   {
-    icon: AlertTriangle,
-    title: "📱 Works on Any Device",
-    description: "Phone, desktop, tablet - use Slack, Teams, or SMS. Manage inventory from anywhere.",
+    icon: Smartphone,
+    title: "📱 iMessage — Already on Your Phone",
+    description: "No new app to download. Invi works in the Messages app you already use every day.",
   },
   {
     icon: Globe,
-    title: "🤖 Natural Language Understanding",
-    description: "Ask questions like a human, not like a search query. Invi understands context and intent.",
+    title: "📊 Google Sheets — Your Data, Your Way",
+    description: "Everything Invi tracks lives in your own Google Sheet. You own your data and can access it anytime.",
   },
 ];
 
@@ -65,7 +65,7 @@ export const FeaturesSection = () => {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Powerful features that automate the tedious parts of inventory management so you can focus on growing your business.
+            Powerful features that simplify inventory management so you can focus on growing your business.
           </motion.p>
         </div>
 
